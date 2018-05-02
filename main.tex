@@ -3,6 +3,7 @@
 \usepackage[backend=biber]{biblatex}
 \usepackage{float}
 \usepackage[swedish]{babel}
+\usepackage{pdfpages} 
 \usepackage[titletoc]{appendix}
 \addbibresource{bibliography.bib}
 \input{LIPSds.tex}
@@ -163,7 +164,20 @@ motsvarar varje punkt ett visst k-värde för en partikel.
 
 \end{itemize}
 
-\section{Översikt av systemet}
+\section{Kunskapsbas}
+\label{lunskapsbas}
+
+\section{Genomförande}
+\subsubsection{Före}
+\subsubsection{Under}
+\subsubsection{Efter}
+
+\section{Teknisk beskrivning}
+
+\section{Resultat}
+
+\section{Slutsats}
+
 
 \newpage
 \addcontentsline{toc}{section}{Referenser}
@@ -174,8 +188,9 @@ motsvarar varje punkt ett visst k-värde för en partikel.
 \section{Användarmanual}
 \label{appendix:användarmanual}
 
-\section{Designspecifikation}
-\label{appendix:designspecifikation}
+\includepdf[pages={1},pagecommand=\section{Designspecifikation}\label{appendix:designspecifikation}\thispagestyle{empty}]{designspecifikation_10.pdf}
+\includepdf[pages={2-}]{designspecifikation_10.pdf}
+
 
 \section{Fördjupningsarbete - Fermi-ytor}
 \label{appendix:fermi-ytor}
@@ -183,21 +198,21 @@ motsvarar varje punkt ett visst k-värde för en partikel.
 \section{Fördjupningsarbete - Visualisering av volymdata}
 \label{appendix:visualisering}
 
-\section{Kravspecifikation}
-\label{appendix:kravspecifikation}
 
-\section{Projektdirektiv}
-\label{appendix:projektdirektiv}
+\includepdf[pages={1},pagecommand=\section{Kravspecifikation}\label{appendix:kravspecifikation}\thispagestyle{empty}]{Kravspecifikation_10.pdf}
+\includepdf[pages={2-}]{Kravspecifikation_10.pdf}
 
-\section{Projektplan}
-\label{appendix:projektplan}
+\includepdf[pages={1},pagecommand=\section{Projektdirektiv}\label{appendix:projektdirektiv}\thispagestyle{empty}]{projektdirektiv.pdf}
+\includepdf[pages={2-}]{projektdirektiv.pdf}
+
+\includepdf[pages={1},pagecommand=\section{Projektplan}\label{appendix:projektplan}\thispagestyle{empty}]{projektplan_10.pdf}
+\includepdf[pages={2-}]{projektplan_10.pdf}
+
+\includepdf[pages={1},pagecommand=\section{Systemskiss}\label{appendix:systemskiss}\thispagestyle{empty}]{Systemskiss_03.pdf}
+\includepdf[pages={2-}]{Systemskiss_03.pdf}
 
 
-\section{Systemskiss}
-\label{appendix:systemskiss}
-
-\section{Tidplan}
-\label{appendix:tidplan}
+\includepdf[pages={1},pagecommand=\section{Tidplan}\label{appendix:tidplan}\thispagestyle{empty}]{tidplan_03.pdf}
 
 \section{Teknisk dokumentation}
 \label{appendix:teknisk-dokumentation}
