@@ -147,10 +147,10 @@ Under efter-fasen överförs projektresultatet till beställaren och projektet a
 
 \section{Fördjupningsarbeten}
 \label{ch:fordjupningsarbeten}
-Nedan beskrivs kortfattat de fördjupningsarbeten som gjort under projektet. Dessa finns även i sin helhet i Bilaga XX och XX. 
-\subsection{Volymsrendering}
+Nedan beskrivs kortfattat de fördjupningsarbeten som gjort under projektet. Dessa finns även i sin helhet i appendix \ref{appendix:fermi-ytor} och \ref{appendix:visualisering}. 
 \subsection{Fermi-ytor}
 Syftet med fördjupningsarbetet om Fermi-ytor var att besvara följande frågor: Vad är Fermi-ytor och hur kan dessa beräknas numeriskt. Detta var av intresse för projektet eftersom en del av det bestod i att visualisera Fermi-ytor...
+\subsection{Visualisering av volymdata}
 
 \section{Teknisk beskrivning}
 
@@ -191,14 +191,26 @@ HDF5 har flera olika datatyper, se Figur 3, och ett HDF5-objekt som antingen är
 %ref[8, s. 3-4]
 
 \subsubsection{VASP}
+Från beräkningsprogrammet VASP fås en rad olika utdatafiler. Dessa listas och beskrivs i designspecifikationen %tekniska dokumentationen?
+(se appendix X). Ur dessa utdatafiler läses saker som atompositionsdata, gittervektorer, elektrontäthetsdata, tillståndstäthetsdata, Fermi-energi och så vidare för att kunna visualisera kristallstrukturer, elektrontäthet, ELF, tillståndstäthet och Fermi-ytor. I designspecifikationen %tekniska dokumentationen?
+beskrivs närmare vad som läses från vilka utdata filer. 
 %TODO: Lägg till Elk om vi fixar det.
 %\subsubsection{ELK}
 
-
-
 \subsection{Visualisering}
+Figur \ref{fig:visualisering} visar hur delsystemet Visualisering är uppbyggt. Behandlad samt användarindata skickas in. Användarindata består av val av färg, val av egenskap som ska ritas ut, val av transparens etc. Dessa behandlas sedan i visualiseringsmodulen som skapar en bild utifrån dem. Den utritade bilden skickas sedan ut från modulen. Detta är en allmän beskrivning av visualiseringen, för de olika egenskaperna som visualiseras är mittenrektangeln i Figur \ref{fig:visualisering} uppbyggd på olika sätt med olika processorer.
 \label{visualisering}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.55]{Visualisering.png}
+	\caption{Grov design av delsystemet Visualisering}
+	\label{fig:visualisering}
+\end{figure}
 \subsubsection{Utriting}
+Delsystemet ritar ut bilder utefter den behandlade datan. Utritningen ger en visualisering av den egenskap som modulen behandlar och kan till exempel vara en volymrendering eller en 2D-graf, beroende på vilket som är mest lättolkat. 
+
+Utritningen görs via Inviwos inbyggda funktionalitet för att rendera via OpenGL. 
+% Ska detta vara med? Grafisk behandlng görs också med Inviwo och OpenGL, där möjligheten finns att både använda färdig funktionalitet och att utveckla nya renderingsfunktioner.
 \subsubsection{Användarindata}
 \subsubsection{Interaktivitet}
 \subsubsection{HDF5-indata}
