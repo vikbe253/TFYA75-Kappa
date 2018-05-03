@@ -66,11 +66,11 @@
 \pagenumbering{arabic}
 
 \section{Inledning}
-Dokumentet är en teknisk dokumentation för kandidatprojektet i visualisering av elektronstrukturer. Visualisering av elektronstrukturer är ett av projekten i kursen TFYA75 vid
-Linköpings universitet. Den tekniska dokumentationen beskriver detaljerat hur systemet är implementerat.
+Dokumentet är en kappa för kandidatprojektet i visualisering av elektronstrukturer. Visualisering av elektronstrukturer är ett av projekten i kursen TFYA75 vid
+Linköpings universitet. Kappan är en sammanfattning av hela projektet.
 
 \subsection{Parter}
-Rickard Armiento har beställt systemet som är beskrivet i denna tekniska dokumentation. Medlemmarna i projektgruppen, som är listade under rubriken projektidentitet ovan, är mottagare av denna beställning och har haft i uppgift att implementera systemet. Projektgruppens handledare är Johan Jönsson.
+Rickard Armiento har beställt systemet som är beskrivet i kappan. Medlemmarna i projektgruppen, som är listade under rubriken projektidentitet ovan, är mottagare av denna beställning och har haft i uppgift att implementera systemet. Projektgruppens handledare är Johan Jönsson.
 
 \subsection{Syfte och mål}
 Inom materialfysik är elektronstrukturberäkningar ett viktigt teoretiskt verktyg. Detta för att få en så bra förståelse som möjligt av hur olika material är uppbyggda, bland annat vad gäller kristallers egenskaper sett ur ett kvantmekaniskt perspektiv. Det kan exempelvis handla om att man vill ta reda på olika materials egenskaper vad gäller värmeledningsförmåga, strömledningsförmåga etc.
@@ -90,89 +90,116 @@ programmeringspråken Python och C++ användas. Det kommer inte utredas
 om det är bättre att använda andra verktyg.
 
 \subsection{Definitioner}
-\begin{itemize}
-\setlength\itemsep{0em}
-\item \textbf{Inviwo:} Ett forskningsverktyg som utvecklas vid Linköpings universitet och ger användaren möjlighet att styra visualisering med hjälp av programmering i Python 3 eller grafiskt. Det tillhandahåller även användargränssnitt för interaktiv visualisering.
 
-\item \textbf{Processor:} Benämningen på ett funktionsblock i Inviwos nätverksredigerare som tar emot indata och producerar utdata. I detta dokument avser en processor alltid en inviwoprocessor om inte annat anges.
+\textbf{C++} är ett programmeringsspråk.
+\cite{C++}
+\newline
+I Inviwo används C++ för att skriva programkod till
+processorer.
 
-\item \textbf{Ports:} Kanaler som processorer använder för att utbyta data av specifika typer.
-
-\item \textbf{MultiInports:} Ports som kan ta emot flera datastrukturer av samma typ.
-
-\item \textbf{Properties:} Variabler som bestämmer en processors tillstånd.
-
-\item \textbf{Länkar:} Kanaler som processorer använder för att länka samman properties av samma typ så att deras tillstånd synkroniseras.
-
-\item \textbf{Inviwo-nätverk:} Ett antal processorer sammankopplade via portar och länkar.
-
-\item \textbf{vec3:} Vektor med tre komponenter.
-
-\item \textbf{Mesh:} Polygonyta.
-
-\item \textbf{Volymdata:} Tredimensionella data.
-
-\item \textbf{API} (Application Programming Interface): En specifikation av hur olika applikationer kan använda och kommunicera med en specifik programvara. Detta utgörs oftast av ett dynamiskt länkat bibliotek.
-	\cite{API}
-
-\item \textbf{BSD2} är en licens för öppen källkod.
-	\cite{BSD2}
-
-\item \textbf{C++} är ett programmeringsspråk.
-	\cite{C++}
-	\newline
-	I Inviwo används C++ för att skriva programkod till processorer.
-
-\item \textbf{Python} är ett programmeringsspråk.
-	\cite{Python}
-	\newline
-	I Inviwo används Python för att knyta samman processorer.
-
-% TODO: Lägg till detta om vi behandlar Elk-data.
-%\item \textbf{Elk} är ett program som använder sig av metoden linjäriserad förstärkt planvåg (Linearized Augmented Planewave (LAPW)) för att lösa ekvationer i täthetsfunktionalteori (Density Functional Theory (DFT)). \cite{ELK}
-
-\item \textbf{Fermi-energi} defineras som en energinivå där antalet tillstånd som har en energi lägre än Fermi-energin är lika med antalet elektroner i systemet. \cite{Fermi-energi}
-
-\item \textbf{Fermi-yta} är, för elektroners k-punkter i reciproka rymden, isoytan där elektronernas energi är lika med Fermi-energin.
+\textbf{Fermi-yta} är, för elektroners k-punkter i reciproka rymden, isoytan där elektronernas energi är lika med Fermi-energin.
 \cite{Fermi-yta}
 
-\item \textbf{Git} är ett decentraliserat versionshanteringssystem.
-\cite{Git}
-    
-\item \textbf{GUI} (Graphical User Interface) är ett grafiskt
-användargränssnitt.
-\cite{GUI}
+\textbf{HDF5} är ett filformat som kan hantera stora mängder data.
+\cite{hdf5}
 
-\item \textbf{HDF5} är ett filformat som kan hantera stora mängder data \cite{hdf5}. Alla HDF5-objekt har en rotgrupp som äger alla andra objekt i datastrukturen. Denna grupp innehåller i sin tur all övrig data i form av andra grupper, länkar till andra grupper eller dataset. Dataset innehåller rådata av något slag. Rådata kan i sammanhanget vara bilder, utdata från beräkningar, programdata, etc. \cites[4-5]{hdf5-intro}
+\textbf{Inviwo} (Interactive Visualization Workshop) är programvara
+för visualisering som tillhandahåller en nätverksredigerare för
+designen av dataflödesnätverk. Noderna i dessa dataflödesnätverk
+kallas processorer. Indata till nätverket behandlas i dessa
+processorer och utdata genereras.
+\cite{Inviwo}
 
-De övriga objektstyperna gås inte igenom i detalj i detta dokument,
-men finns väl beskrivna i \emph{High Level Introduction to HDF5} \cite{hdf5-intro}.
-
-\item \textbf{Reciproka rymden}, även känd som k-rummet, är en
-fouriertransformering av det normala rummet. I reciproka rymden
-motsvarar varje punkt ett visst k-värde för en partikel.
-\cite{Reciproka-rymden}
-
-\item \textbf{VASP} är ett program för modellering på atomnivå, för t.ex. elektronstruktusrberäkningar och kvantmekanisk molekyldynamik.
-\cite{VASP}
-
-\item \textbf{Rastergrafik} är en typ av data som innehåller en matris av färgvärden, med bestämd och informationsbegränsad upplösning.
-\cite{raster}
-
-% TODO: Lägg till detta om det behövs för Fermi-ytorna.
-%\item \textbf{Wigner-Seitz-radie} är en radie tillhörande en atom definierad så att summan av volymerna av alla sfärer, bildade för varje atom i enhetscellen utifrån denna radie, är samma som enhetscellens totala volym. I en kristall bestående av flera atomslag finns inget entydigt sätt att välja denna radie. \cite{Wigner-Seitz-radie}
-
-\end{itemize}
+\textbf{Python} är ett programmeringsspråk.
+\cite{Python}
+\newline
+I Inviwo används Python för att knyta samman processorer.
 
 \section{Kunskapsbas}
-\label{lunskapsbas}
+\label{kunskapsbas}
+Projektgruppen har efter att tagit del av projektdirektivet, se appendix \ref{appendix:projektdirektiv}
+skrivit en kravspecifikation, se appendix \ref{appendix:kravspecifikation}. Därefter skrevs en projektplan, se appendix \ref{appendix:projektplan}, tidplan, se appendix \ref{appendix:tidplan} och en  systemskiss, se appendix \ref{appendix:systemskiss} enligt LIPS-modellen \cite{LIPS}. 
+% TODO: Fixa ref för LIPS
+Dessa dokument har sedan fungerat som en utgångspunkt för projektets utforming. Utöver dessa har en designspecifikation, se appendix \ref{appendix:designspecifikation} skrivits som är en fördjupning i systemskissen och ger en mer detaljerad beskrivning av systemet.
 
-\section{Genomförande}
-\subsubsection{Före}
-\subsubsection{Under}
-\subsubsection{Efter}
+Projektgruppen har skrivit två fördjupningsarbeten, se appendix \ref{appendix:fermi-ytor} och \ref{appendix:visualisering} knutna till projektarbetet.
+
+Utöver detta har projektgruppen haft ett antal föreläsningar och laborationer inom området.
+
+\section{Fasplan}
+Projektet drivs enligt LIPS-modellen, som är en modell med regler, instruktioner och mallar för att bedriva projekt. Projektet delas upp i tre faser - före, under, och efter.
+
+\subsubsection{Före-fas}
+Före-fasen är ämnad att undersöka om projektet bör genomföras och, om så är fallet, definiera och konkretisera projektets mål samt organisera arbetet som krävs för att uppnå dessa. Under före-fasen skrivs bland annat ett projektdirektiv, se appendix \ref{appendix:projektdirektiv}, en kravspecifikation, se appendix \ref{appendix:kravspecifikation}, en systemskiss, se appendix \ref{appendix:systemskiss} och en projektplan, se appendix \ref{appendix:projektplan}. Projektdirektivet skrevs innan projektgruppen skapades och gavs till projektgruppen vid projektets start.
+Projektgruppen har under före-fasen skrivit ett gruppkontrakt, se appendix \ref{appendix:Gruppkontrakt}, en kravspecifikation, en systemskiss samt en projektplan.
+
+\subsubsection{Under-fas}
+Under  under-fasen  utförs  det  arbete  som  leder  till  att  projektets  krav  uppfylls.  Projektgrup-
+pen skriver en designspecifikation, se appendix \ref{appendix:designspecifikation}
+som beskriver hur systemet ska konstrueras i mer detalj än
+systemskissen. Projektgruppen arbetar sedan med att, utgående från denna designspecifikation, konstruera och testa systemet. En teknisk dokumentation, se appendix \ref{appendix:teknisk-dokumentation}, skrivs parallellt med systemets konstruktion för att reflektera den faktiska implementationen av idéerna beskrivna i designspecifikationen. 
+
+Projektgruppen har också skrivit två fördjupningsarbeten knutna till projektet. Det ena, se appendix \ref{appendix:fermi-ytor}, behandlar Fermi-ytor som är ett av fördjupningsområdena i projektet. Det andra, se appendix \ref{appendix:visualisering}, behandlar visualisering som är en mer generell del av projektet. 
+
+\subsubsection{Efter-fas}
+Under efter-fasen överförs projektresultatet till beställaren och projektet avslutas. Projektgruppen skriver en kappa som bifogas vid slutleveransen av produkten och även en användarmanual, se appendix \ref{appendix:användarmanual}. Vid slutleveransen ska
+även en demonstration hållas som visar att produkten uppfyller kraven ställda på den. Efter produkten levererats skriver projektgruppen en efterstudie.
 
 \section{Teknisk beskrivning}
+
+En teknisk beskrivning av det  färdigställda systemet kan ses i figur \ref{fig:grov-skiss}. % lägg till fig
+Systemet hanterar indata från VASP. %TODO: Lägg till om vi har elk
+%och även från Elk.
+Datan kommer från elektronstrukturberäkningar och konverteras till HDF5-format för att därefter visualiseras. Användaren kan välja vad som ska visualiseras, kontrollera renderingens utseende och ställa in egenskaper såsom färg, transparens och rotation.
+Systemet har delats in i delsystem och dessa har utvecklas och testas enskilt i den mån det inte funnits beroenden till andra delsystem.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.55]{grov-skiss.png}
+	\caption{Grov design av systemet}
+	\label{fig:grov-skiss}
+\end{figure}
+
+I avsnitt \ref{datakonvertering} och \ref{visualisering} nedan ges en övergripande inblick av det två stora delsystemen och deras delsystem. För en mer detaljerad teknisk beskriving av systemet se den tekniska dokumentationen, se appendix \ref{appendix:teknisk-dokumentation}.
+
+\subsection{Datakonvertering}
+\label{datakonvertering}
+Detta avsnitt behandlar delsystemet datakonvertering, figur \ref{fig:konverteringdetalj} ger en grov översikt av delsystemet. Obehandlad data skickas in, obehandlad data är i form av textfiler med data från beräkningar gjorda i VASP.% TODO: Lägg till ELk om vi fixar det.
+% eller Elk.
+Indata behandlas sedan i konverteringsmodulen. Från konverteringsmodulen kommer behandlad data i HDF5-format.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.55]{konverteringdetalj.png}
+	\caption{Grov design av konverteringsmodulen}
+	\label{fig:konverteringdetalj}
+\end{figure}
+
+\subsubsection{HDF5}
+Systemet kan hantera de olika utdatafilerna från VASP.%TODO: Lägg till elk om ci fixar det.
+%Det bör även kunna hantera utdatafiler från Elk.
+Detta görs genom att konvertera datan till HDF5-format.
+HDF5 är ett filformat som är designat för att hantera stora mängder data på ett flexibelt sätt \cite{hdf5}.
+HDF5 har flera olika datatyper, se Figur 3, och ett HDF5-objekt som antingen är lagrat på disk eller hålls i minnet är uppdelat i två huvudsakliga underobjekt, nämligen grupper och dataset.
+%ref[8, s. 3-4]
+
+\subsubsection{VASP}
+%TODO: Lägg till Elk om vi fixar det.
+%\subsubsection{ELK}
+
+
+
+\subsection{Visualisering}
+\label{visualisering}
+\subsubsection{Utriting}
+\subsubsection{Användarindata}
+\subsubsection{Interaktivitet}
+\subsubsection{HDF5-indata}
+\subsubsection{Kristallstruktur}
+\subsubsection{Elektrontäthet}
+\subsubsection{Tillståndstäthet}
+\subsubsection{Fermi-ytor}
+\subsubsection{Dynamisk visualisering av kristallstrukturer}
 
 \section{Resultat}
 
@@ -198,6 +225,7 @@ motsvarar varje punkt ett visst k-värde för en partikel.
 \section{Fördjupningsarbete - Visualisering av volymdata}
 \label{appendix:visualisering}
 
+\includepdf[pages={1},pagecommand=\section{Gruppkontrakt}\label{appendix:Gruppkontrakt}\thispagestyle{empty}]{Gruppkontrakt.pdf}
 
 \includepdf[pages={1},pagecommand=\section{Kravspecifikation}\label{appendix:kravspecifikation}\thispagestyle{empty}]{Kravspecifikation_10.pdf}
 \includepdf[pages={2-}]{Kravspecifikation_10.pdf}
