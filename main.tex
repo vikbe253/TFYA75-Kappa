@@ -183,12 +183,16 @@ Indata behandlas sedan i konverteringsmodulen. Från konverteringsmodulen kommer
 \end{figure}
 
 \subsubsection{HDF5}
-Systemet kan hantera de olika utdatafilerna från VASP.%TODO: Lägg till elk om ci fixar det.
+Systemet kan hantera de olika utdatafilerna från VASP.%TODO: Lägg till elk om vi fixar det.
 %Det bör även kunna hantera utdatafiler från Elk.
 Detta görs genom att konvertera datan till HDF5-format.
 HDF5 är ett filformat som är designat för att hantera stora mängder data på ett flexibelt sätt \cite{hdf5}.
 HDF5 har flera olika datatyper, se Figur 3, och ett HDF5-objekt som antingen är lagrat på disk eller hålls i minnet är uppdelat i två huvudsakliga underobjekt, nämligen grupper och dataset.
 %ref[8, s. 3-4]
+
+Alla HDF5-objekt har en rotgrupp som äger alla andra objekt i datastrukturen. Denna grupp innehåller i sin tur all övrig data i form av andra grupper, länkar till andra grupper eller dataset.
+Dataset innehåller rådata av något slag. Rådata kan i sammanhanget vara bilder, utdata från beräkningar, programdata, etcetera. %ref [8, s. 4-5]
+I desingspesifikationen, se appendix \ref{appendix:designspecifikation} ges en mer detaljerad beskriving av HDf5.
 
 \subsubsection{VASP}
 Från beräkningsprogrammet VASP fås en rad olika utdatafiler. Dessa listas och beskrivs i designspecifikationen %tekniska dokumentationen?
@@ -212,6 +216,13 @@ Delsystemet ritar ut bilder utefter den behandlade datan. Utritningen ger en vis
 Utritningen görs via Inviwos inbyggda funktionalitet för att rendera via OpenGL. 
 % Ska detta vara med? Grafisk behandlng görs också med Inviwo och OpenGL, där möjligheten finns att både använda färdig funktionalitet och att utveckla nya renderingsfunktioner.
 \subsubsection{Användarindata}
+Användaren kan ändra inställningar som kontrollerar utseendet på visualiseringarna.
+Denna indata matas in i Inviwos användargränssnitt, %fixa fig
+se Figur 10, och i inställningsrutan för en processor, %fixa fig
+se Figur 11.
+Visualiseringsfunktionaliteten läggas till i form av processorer som via Inviwo tillhandahåller inställningsmöjligheter på det sätt som beskrivits i designspecifikationen \ref{appendix:designspecifikation}. Således blir inte användarinställningar ett eget separat delsystem, utan kommer att bakas in i visualiseringssystemen. Detta görs genom att processorerna är skrivna att exponera de inställningar som användaren är menad att
+justera. Inviwo kommer då automatiskt lägga till inställningarna i rutan, se %fixa figur 
+Figur 11.
 \subsubsection{Interaktivitet}
 \subsubsection{HDF5-indata}
 \subsubsection{Kristallstruktur}
@@ -225,6 +236,7 @@ Utritningen görs via Inviwos inbyggda funktionalitet för att rendera via OpenG
 \section{Slutsats}
 
 
+
 \newpage
 \addcontentsline{toc}{section}{Referenser}
 \printbibliography{}
@@ -232,38 +244,36 @@ Utritningen görs via Inviwos inbyggda funktionalitet för att rendera via OpenG
 \begin{appendices}
 
 \section{Användarmanual}
-\label{appendix:användarmanual}
+\label{appendix:användarmanual}	
+	
+\includepdf[pages={1},pagecommand=\section{Designspecifikation}\label{appendix:designspecifikation}\thispagestyle{empty}]{designspecifikation_10.pdf} \includepdf[pages={2-}]{designspecifikation_10.pdf}
+	
+	
+\includepdf[pages={1},pagecommand=\section{Fördjupningsarbete - Fermi-ytor }\label{appendix:fermi-ytor}\thispagestyle{empty}]{fordjupningsarbete-fermi-ytor_02.pdf}
+\includepdf[pages={2-}]{fordjupningsarbete-fermi-ytor_02.pdf}
 
-\includepdf[pages={1},pagecommand=\section{Designspecifikation}\label{appendix:designspecifikation}\thispagestyle{empty}]{designspecifikation_10.pdf}
-\includepdf[pages={2-}]{designspecifikation_10.pdf}
-
-
-\section{Fördjupningsarbete - Fermi-ytor}
-\label{appendix:fermi-ytor}
-
-\section{Fördjupningsarbete - Visualisering av volymdata}
-\label{appendix:visualisering}
-
+\includepdf[pages={1},pagecommand=\section{Fördjupningsarbete - Visualisering av volysmdata}\label{appendix:visualisering}\thispagestyle{empty}]{Visualisering-av-volymsdata_02.pdf}
+\includepdf[pages={2-}]{Visualisering-av-volymsdata_02.pdf}
+	
 \includepdf[pages={1},pagecommand=\section{Gruppkontrakt}\label{appendix:Gruppkontrakt}\thispagestyle{empty}]{Gruppkontrakt.pdf}
-
-\includepdf[pages={1},pagecommand=\section{Kravspecifikation}\label{appendix:kravspecifikation}\thispagestyle{empty}]{Kravspecifikation_10.pdf}
-\includepdf[pages={2-}]{Kravspecifikation_10.pdf}
-
+	
+\includepdf[pages={1},pagecommand=\section{Kravspecifikation}\label{appendix:kravspecifikation}\thispagestyle{empty}]{Kravspecifikation_10.pdf}	\includepdf[pages={2-}]{Kravspecifikation_10.pdf}
+	
 \includepdf[pages={1},pagecommand=\section{Projektdirektiv}\label{appendix:projektdirektiv}\thispagestyle{empty}]{projektdirektiv.pdf}
 \includepdf[pages={2-}]{projektdirektiv.pdf}
-
+	
 \includepdf[pages={1},pagecommand=\section{Projektplan}\label{appendix:projektplan}\thispagestyle{empty}]{projektplan_10.pdf}
 \includepdf[pages={2-}]{projektplan_10.pdf}
-
+	
 \includepdf[pages={1},pagecommand=\section{Systemskiss}\label{appendix:systemskiss}\thispagestyle{empty}]{Systemskiss_03.pdf}
 \includepdf[pages={2-}]{Systemskiss_03.pdf}
-
-
+	
+	
 \includepdf[pages={1},pagecommand=\section{Tidplan}\label{appendix:tidplan}\thispagestyle{empty}]{tidplan_03.pdf}
-
-\section{Teknisk dokumentation}
-\label{appendix:teknisk-dokumentation}
-
+	
+	
+\includepdf[pages={1},pagecommand=\section{Teknisk dokumentation}\label{appendix:teknisk-dokumentation}\thispagestyle{empty}]{tekdok.pdf}
+\includepdf[pages={2-}]{tekdok.pdf}
 
 \end{appendices}
 
