@@ -192,7 +192,7 @@ HDF5 har flera olika datatyper, se Figur 3, och ett HDF5-objekt som antingen är
 
 Alla HDF5-objekt har en rotgrupp som äger alla andra objekt i datastrukturen. Denna grupp innehåller i sin tur all övrig data i form av andra grupper, länkar till andra grupper eller dataset.
 Dataset innehåller rådata av något slag. Rådata kan i sammanhanget vara bilder, utdata från beräkningar, programdata, etcetera. %ref [8, s. 4-5]
-I desingspesifikationen, se appendix \ref{appendix:designspecifikation} ges en mer detaljerad beskriving av HDf5.
+I desingspesifikationen, se appendix \ref{appendix:designspecifikation} ges en mer detaljerad beskriving av HDF5.
 
 \subsubsection{VASP}
 Från beräkningsprogrammet VASP fås en rad olika utdatafiler. Dessa listas och beskrivs i designspecifikationen %tekniska dokumentationen?
@@ -216,6 +216,7 @@ Delsystemet ritar ut bilder utefter den behandlade datan. Utritningen ger en vis
 Utritningen görs via Inviwos inbyggda funktionalitet för att rendera via OpenGL. 
 % Ska detta vara med? Grafisk behandlng görs också med Inviwo och OpenGL, där möjligheten finns att både använda färdig funktionalitet och att utveckla nya renderingsfunktioner.
 \subsubsection{Användarindata}
+% TODO: Fixa nya figurer från inviwo
 Användaren kan ändra inställningar som kontrollerar utseendet på visualiseringarna.
 Denna indata matas in i Inviwos användargränssnitt, %fixa fig
 se Figur 10, och i inställningsrutan för en processor, %fixa fig
@@ -223,12 +224,26 @@ se Figur 11.
 Visualiseringsfunktionaliteten läggas till i form av processorer som via Inviwo tillhandahåller inställningsmöjligheter på det sätt som beskrivits i designspecifikationen \ref{appendix:designspecifikation}. Således blir inte användarinställningar ett eget separat delsystem, utan kommer att bakas in i visualiseringssystemen. Detta görs genom att processorerna är skrivna att exponera de inställningar som användaren är menad att
 justera. Inviwo kommer då automatiskt lägga till inställningarna i rutan, se %fixa figur 
 Figur 11.
+
 \subsubsection{Interaktivitet}
-\subsubsection{HDF5-indata}
+Användaren kan modifiera visualiseringen genom att reglera ett intervall av värden för
+någon egenskap, där full transparens fås för alla värden inom intervallet, rotera 3D-bilder etc.
+Ny användarindata, som skickas in efter att den första bilden har ritats upp, skickas tillbaka till
+visualiseringsmodulen för att utföra en ny rendering.
+% TODO: Lägg till exempel med bild?
+
 \subsubsection{Kristallstruktur}
+Kristallstruktur kan visualiseras som atompositioner i enhetscellen. Sfärer som representerar
+atomer  kan  ritas  ut  genom  volymsrendering. % figur och exempel?
+I designspecifikationen, se appendix \ref{appendix:designspecifikation} för en mer detaljerad beskrivning
+hur detta byggs upp.
+
 \subsubsection{Elektrontäthet}
+
 \subsubsection{Tillståndstäthet}
+
 \subsubsection{Fermi-ytor}
+
 \subsubsection{Dynamisk visualisering av kristallstrukturer}
 
 \section{Resultat}
