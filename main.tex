@@ -66,28 +66,33 @@
 \pagenumbering{arabic}
 
 \section{Inledning}
+\label{ch:inledning}
 Dokumentet är en kappa för kandidatprojektet i visualisering av elektronstrukturer. Visualisering av elektronstrukturer är ett av projekten i kursen TFYA75 vid
-Linköpings universitet. Kappan är en sammanfattning av hela projektet.
+Linköpings universitet. 
 
-\subsection{Parter}
-Rickard Armiento har beställt systemet som är beskrivet i kappan. Medlemmarna i projektgruppen, som är listade under rubriken projektidentitet ovan, är mottagare av denna beställning och har haft i uppgift att implementera systemet. Projektgruppens handledare är Johan Jönsson.
-
-\subsection{Syfte och mål}
 Inom materialfysik är elektronstrukturberäkningar ett viktigt teoretiskt verktyg. Detta för att få en så bra förståelse som möjligt av hur olika material är uppbyggda, bland annat vad gäller kristallers egenskaper sett ur ett kvantmekaniskt perspektiv. Det kan exempelvis handla om att man vill ta reda på olika materials egenskaper vad gäller värmeledningsförmåga, strömledningsförmåga etc.
 
 För att öka förståelsen samt för att enklare kunna presentera resultat från forskning inom området är det viktigt att kunna göra olika typer av visualiseringar baserat på elektronstrukturberäkningar.
 
 I många av de system som används för att utföra dessa beräkningar, exempelvis VASP, ges ingen eller begränsad möjlighet till detta. Vidare är de system som idag finns tillgängliga för visualisering förhållandevis ineffektiva, dåligt standardiserade samt har få visualiseringsfunktioner.
 
-Syftet och målet för projektet har varit att uppdatera och utöka det modifierbara verktyg för visualisering av resultaten från elektronstrukturberäkningar som togs fram av 2017 års projektgrupp. Utöver det konkreta målet med utvecklingen av mjukvara för visualisering ska även projektet ge projektmedlemmarna erfarenhet av att arbeta i projekt och utöka deras förmåga till analytiskt och fysikaliskt tänkande för att ge värdefull erfarenhet inför arbetslivet.
+Projektgruppen har vidareutvecklat och utökat det system som togs fram av 2017 års projektgrupp. Utöver det konkreta målet med utvecklingen av mjukvara för visualisering ska även projektet ge projektmedlemmarna erfarenhet av att arbeta i projekt och utöka deras förmåga till analytiskt och fysikaliskt tänkande för att ge värdefull erfarenhet inför arbetslivet.
 
-\subsection{Problemformulering}
-I projektdirektivet, se appendix \ref{appendix:projektdirektiv}, ges en översiktilig bild av krav som kan komma att ställas på systemet. Utifrån projektdirektivet har projektgruppen skapat en kravspecifikation, se appendix \ref{appendix:kravspecifikation} med de krav som ställs på sytemet och även de generella krav som ställs på projektet och dokumentationen i sin helhet.
+Kappan ger en komplett bild av hela projektet och består av följande delar:
 
-Systemet är ett verktyg för att visualiserar olika egenskaper från elektonstrukturberäkningar. Själva visualiseringen kommer ske i programvaran Inviwo. % ref
+\begin{itemize}
+	\item \textbf{Problemformulering}, avsnitt \ref{ch:problemformulering} och \textbf{Kunskapsbas}, avsnitt \ref{ch:kunskapsbas}, beskriver själva förarbetet i projektet.
+	
+	\item \textbf{Fördjupningsarbeten}, se avsnitt \ref{ch:fördjupningsarbeten} beskriver kortfattat de fördjupningsområden som projektgruppen behandlat.
+	
+	\item \textbf{Fasplan}, avsnitt \ref{ch:fasplan} och \textbf{Teknisk beskrivning}, avsnitt \ref{ch:teknisk-beskrivning} beskriver överskådligt hur projektet har genomförts.
+	
+	\item \textbf{Resultat}, avsnitt \ref{ch:resultat} och \textbf{Slutsats}, avsnitt \ref{ch:slutsats} beskriver hur det slutgiltliga systemet fungerar och sammanfattar projektet i sen helhet.
+\end{itemize}
 
+\subsection{Parter}
+Rickard Armiento har beställt systemet som är beskrivet i kappan. Medlemmarna i projektgruppen, som är listade under rubriken projektidentitet ovan, är mottagare av denna beställning och har haft i uppgift att implementera systemet. Projektgruppens handledare är Johan Jönsson.
 
-Systemet är en vidareutveckling av projektet från år 2017.
 
 \subsection{Användning}
 Denna produkt kommer användas vid Linköpings universitet för att analysera data från elektronstruktursberäkningar.
@@ -123,8 +128,26 @@ processorer och utdata genereras.
 \newline
 I Inviwo används Python för att knyta samman processorer.
 
+
+\section{Problemformulering}
+\label{ch:problemformulering}
+
+I projektdirektivet, se appendix \ref{appendix:projektdirektiv}, ges en översiktilig bild av de krav som kan komma att ställas på systemet. Utifrån projektdirektivet har projektgruppen skapat en kravspecifikation, se appendix \ref{appendix:kravspecifikation} med de krav som ställs på sytemet och även de generella krav som ställs på projektet och dokumentationen.
+
+Systemet ska vara ett verktyg för att visualiserar olika egenskaper från elektonstrukturberäkningar och  själva visualiseringen ska ske i programvaran Inviwo\cite{Inviwo}.
+Systemet ska vara uppbyggt av två huvudsakliga delsystem, ett som hanterar konvertering av data och ett annat som visualiserar den konverterade datan, se figur \ref{fig:grov-skiss}. Vilken data som ska visualiseras ska kunna väljas av användaren. Systemet ska vara en vidareutveckling av det system som togs fram av 2017 års projektgrupp. Projektegruppen ska utöka och uppdatera befintlig kod för att uppfylla de krav som ställts i kravspecifikationen.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.55]{grov-skiss.png}
+	\caption{Grov design av systemet}
+	\label{fig:grov-skiss}
+\end{figure}
+
+
+
 \section{Kunskapsbas}
-\label{kunskapsbas}
+\label{ch:kunskapsbas}
 Projektgruppen har efter att tagit del av projektdirektivet, se appendix \ref{appendix:projektdirektiv}
 skrivit en kravspecifikation, se appendix \ref{appendix:kravspecifikation}. Därefter skrevs en projektplan, se appendix \ref{appendix:projektplan}, tidplan, se appendix \ref{appendix:tidplan} och en  systemskiss, se appendix \ref{appendix:systemskiss} enligt LIPS-modellen \cite{LIPS}. 
 % TODO: Fixa ref för LIPS
@@ -135,6 +158,7 @@ Projektgruppen har skrivit två fördjupningsarbeten, se appendix \ref{appendix:
 Utöver detta har projektgruppen haft ett antal föreläsningar och laborationer inom området.
 
 \section{Fasplan}
+\label{ch:fasplan}
 Projektet drivs enligt LIPS-modellen, som är en modell med regler, instruktioner och mallar för att bedriva projekt. Projektet delas upp i tre faser - före, under, och efter.
 
 \subsubsection{Före-fas}
@@ -154,7 +178,7 @@ Under efter-fasen överförs projektresultatet till beställaren och projektet a
 även en demonstration hållas som visar att produkten uppfyller kraven ställda på den. Efter produkten levererats skriver projektgruppen en efterstudie.
 
 \section{Fördjupningsarbeten}
-\label{ch:fordjupningsarbeten}
+\label{ch:fördjupningsarbeten}
 Nedan beskrivs kortfattat de fördjupningsarbeten som gjort under projektet. Dessa finns även i sin helhet i appendix \ref{appendix:fermi-ytor} och \ref{appendix:visualisering}. 
 \subsection{Fermi-ytor}
 Syftet med fördjupningsarbetet om Fermi-ytor var att besvara följande frågor: Vad är Fermi-ytor och hur kan dessa beräknas numeriskt. Detta var av intresse för projektet eftersom en del av det bestod i att visualisera Fermi-ytor...
@@ -162,6 +186,7 @@ Syftet med fördjupningsarbetet om Fermi-ytor var att besvara följande frågor:
 \subsection{Visualisering av volymdata}
 
 \section{Teknisk beskrivning}
+\label{ch:teknisk-beskrivning}
 
 En teknisk beskrivning av det  färdigställda systemet kan ses i figur \ref{fig:grov-skiss}. % lägg till fig
 Systemet hanterar indata från VASP. %TODO: Lägg till om vi har elk
@@ -179,7 +204,7 @@ Systemet har delats in i delsystem och dessa har utvecklas och testas enskilt i 
 I avsnitt \ref{datakonvertering} och \ref{visualisering} nedan ges en övergripande inblick av det två stora delsystemen och deras delsystem. För en mer detaljerad teknisk beskriving av systemet se den tekniska dokumentationen, se appendix \ref{appendix:teknisk-dokumentation}.
 
 \subsection{Datakonvertering}
-\label{datakonvertering}
+\label{ch:datakonvertering}
 Detta avsnitt behandlar delsystemet datakonvertering, figur \ref{fig:konverteringdetalj} ger en grov översikt av delsystemet. Obehandlad data skickas in, obehandlad data är i form av textfiler med data från beräkningar gjorda i VASP.% TODO: Lägg till ELk om vi fixar det.
 % eller Elk.
 Indata behandlas sedan i konverteringsmodulen. Från konverteringsmodulen kommer behandlad data i HDF5-format.
@@ -262,9 +287,10 @@ I designspecifikationen, se appendix \ref{appendix:designspecifikation} för e m
 
 
 \section{Resultat}
+\label{ch:resultat}
 
 \section{Slutsats}
-
+\label{ch:slutsats}
 
 
 \newpage
