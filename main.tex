@@ -99,8 +99,8 @@ Rickard Armiento har beställt systemet som är beskrivet i kappan. Medlemmarna 
 Denna produkt kommer användas vid Linköpings universitet för att analysera data från elektronstruktursberäkningar.
 
 \subsection{Begränsningar}
-I projektet kommer visualiseringsverktyget Inviwo och
-programmeringspråken Python och C++ användas. Det kommer inte utredas
+I projektet har visualiseringsverktyget Inviwo och
+programmeringspråken Python och C++ användts. Det har inte utretts
 om det är bättre att använda andra verktyg.
 
 \subsection{Definitioner}
@@ -133,7 +133,7 @@ I Inviwo används Python för att knyta samman processorer.
 \section{Problemformulering}
 \label{ch:problemformulering}
 
-I projektdirektivet, se appendix \ref{appendix:projektdirektiv}, ges en översiktilig bild av de krav som kan komma att ställas på systemet. Utifrån projektdirektivet har projektgruppen skapat en kravspecifikation, se appendix \ref{appendix:kravspecifikation} med de krav som ställs på sytemet och även de generella krav som ställs på projektet och dokumentationen.
+I projektdirektivet, se appendix \ref{appendix:projektdirektiv}, ges en översiktlig bild av de krav som kan komma att ställas på systemet. Utifrån projektdirektivet har projektgruppen skapat en kravspecifikation, se appendix \ref{appendix:kravspecifikation} med de krav som ställs på sytemet och även de generella krav som ställs på projektet och dokumentationen.
 
 Systemet ska vara ett verktyg för att visualiserar olika egenskaper från elektonstrukturberäkningar och själva visualiseringen ska ske i programvaran Inviwo\cite{Inviwo}.
 Systemet ska vara uppbyggt av två huvudsakliga delsystem, ett som hanterar konvertering av data och ett annat som visualiserar den konverterade datan, se figur \ref{fig:grov-skiss}. Vilken data som ska visualiseras ska kunna väljas av användaren. Systemet ska vara en vidareutveckling av det system som togs fram av 2017 års projektgrupp. Projektegruppen ska utöka och uppdatera befintlig kod för att uppfylla de krav som ställts i kravspecifikationen.
@@ -156,7 +156,7 @@ Dessa dokument har sedan fungerat som en utgångspunkt för projektets utforming
 
 Projektgruppen har skrivit två fördjupningsarbeten, se appendix \ref{appendix:fermi-ytor} och \ref{appendix:visualisering} knutna till projektarbetet.
 
-Utöver detta har projektgruppen haft ett antal föreläsningar och laborationer inom området.
+Projektgruppen har tagit del av ett antal föreläsningar om dokumentationen i projektet. Utöver det har även föreläsningar i Inviwo och Python hållts samt laborationer i beräkningsfysik och Python-programmering. 
 
 \section{Fasplan}
 \label{ch:fasplan}
@@ -195,13 +195,6 @@ Systemet hanterar indata från VASP. %TODO: Lägg till om vi har elk
 Datan kommer från elektronstrukturberäkningar och konverteras till HDF5-format för att därefter visualiseras. Användaren kan välja vad som ska visualiseras, kontrollera renderingens utseende och ställa in egenskaper såsom färg, transparens och rotation.
 Systemet har delats in i delsystem och dessa har utvecklas och testas enskilt i den mån det inte funnits beroenden till andra delsystem.
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.55]{grov-skiss.png}
-	\caption{Grov design av systemet}
-	\label{fig:grov-skiss}
-\end{figure}
-
 I avsnitt \ref{datakonvertering} och \ref{visualisering} nedan ges en övergripande inblick av det två stora delsystemen och deras delsystem. För en mer detaljerad teknisk beskriving av systemet se den tekniska dokumentationen, se appendix \ref{appendix:teknisk-dokumentation}.
 
 \subsection{Datakonvertering}
@@ -226,7 +219,7 @@ HDF5 har flera olika datatyper, se Figur 3, och ett HDF5-objekt som antingen är
 %ref[8, s. 3-4]
 
 Alla HDF5-objekt har en rotgrupp som äger alla andra objekt i datastrukturen. Denna grupp innehåller i sin tur all övrig data i form av andra grupper, länkar till andra grupper eller dataset.
-Dataset innehåller rådata av något slag. Rådata kan i sammanhanget vara bilder, utdata från beräkningar, programdata, etcetera. %ref [8, s. 4-5]
+Dataset innehåller rådata av något slag. Rådata kan i sammanhanget vara bilder, utdata från beräkningar, programdata, etc. %ref [8, s. 4-5]
 I desingspesifikationen, se appendix \ref{appendix:designspecifikation} ges en mer detaljerad beskriving av HDF5.
 
 \subsubsection{VASP}
