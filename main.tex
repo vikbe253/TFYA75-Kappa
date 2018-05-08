@@ -172,7 +172,7 @@ pen skriver en designspecifikation, se appendix \ref{appendix:designspecifikatio
 som beskriver hur systemet ska konstrueras i mer detalj än
 systemskissen. Projektgruppen arbetar sedan med att, utgående från denna designspecifikation, konstruera och testa systemet. En teknisk dokumentation, se appendix \ref{appendix:teknisk-dokumentation}, skrivs parallellt med systemets konstruktion för att reflektera den faktiska implementationen av idéerna beskrivna i designspecifikationen. 
 
-Projektgruppen har också skrivit två fördjupningsarbeten knutna till projektet. Det ena, se appendix \ref{appendix:fermi-ytor}, behandlar Fermi-ytor som är ett av fördjupningsområdena i projektet. Det andra, se appendix \ref{appendix:visualisering}, behandlar visualisering som är en mer generell del av projektet. 
+Projektgruppen har också skrivit två fördjupningsarbeten knutna till projektet. Det ena, se appendix \ref{appendix:fermi-ytor}, behandlar Fermi-ytor som är ett av fördjupningsområdena i projektet och som ska visualiseras. Det andra, se appendix \ref{appendix:visualisering}, behandlar visualisering som är en mer generell del av projektet. 
 
 \subsubsection{Efter-fas}
 Under efter-fasen överförs projektresultatet till beställaren och projektet avslutas. Projektgruppen skriver en kappa som bifogas vid slutleveransen av produkten och även en användarmanual, se appendix \ref{appendix:användarmanual}. Vid slutleveransen ska
@@ -180,9 +180,9 @@ Under efter-fasen överförs projektresultatet till beställaren och projektet a
 
 \section{Fördjupningsarbeten}
 \label{ch:fördjupningsarbeten}
-Nedan beskrivs kortfattat de fördjupningsarbeten som gjort under projektet. Dessa finns även i sin helhet i appendix \ref{appendix:fermi-ytor} och \ref{appendix:visualisering}. 
+Nedan beskrivs kortfattat de fördjupningsarbeten som gjorts under projektet. Dessa finns även i sin helhet i appendix \ref{appendix:fermi-ytor} och \ref{appendix:visualisering}. 
 \subsection{Fermi-ytor}
-Syftet med fördjupningsarbetet om Fermi-ytor var att besvara följande frågor: Vad är Fermi-ytor och hur kan dessa beräknas numeriskt. Detta var av intresse för projektet eftersom en del av det bestod i att visualisera Fermi-ytor...
+Syftet med fördjupningsarbetet om Fermi-ytor var att besvara följande frågor: Vad är Fermi-ytor och hur kan dessa beräknas numeriskt? Detta var av intresse för projektet eftersom en del av det bestod i att visualisera Fermi-ytor. Arbetet beskriver kortfattat begrepp inom fasta tillståndets fysik som är av betydelse för att förstå vad Fermi-ytor är, för att sedan gå in på hur dessa kan beräknas numeriskt.
 
 \subsection{Visualisering av volymdata}
 I fördjupningsarbetet, visualisering av volymsdata tittades det närmare på ett par av de metoder mjukvaran Inviwo använder sig av. Detta för att kunna göra en jämförelse av både prestanda och resultat.
@@ -195,7 +195,7 @@ Systemet hanterar indata från VASP. %TODO: Lägg till om vi har elk
 Datan kommer från elektronstrukturberäkningar och konverteras till HDF5-format för att därefter visualiseras. Användaren kan välja vad som ska visualiseras, kontrollera renderingens utseende och ställa in egenskaper såsom färg, transparens och rotation.
 Systemet har delats in i delsystem och dessa har utvecklas och testas enskilt i den mån det inte funnits beroenden till andra delsystem.
 
-I avsnitt \ref{datakonvertering} och \ref{visualisering} nedan ges en övergripande inblick av det två stora delsystemen och deras delsystem. För en mer detaljerad teknisk beskriving av systemet se den tekniska dokumentationen, se appendix \ref{appendix:teknisk-dokumentation}.
+I avsnitt \ref{ch:datakonvertering} och \ref{ch:visualisering} nedan ges en övergripande inblick i det två stora delsystemen och deras delsystem. För en mer detaljerad teknisk beskriving av systemet se den tekniska dokumentationen, se appendix \ref{appendix:teknisk-dokumentation}.
 
 \subsection{Datakonvertering}
 \label{ch:datakonvertering}
@@ -230,7 +230,8 @@ beskrivs närmare vad som läses från vilka utdata filer.
 %\subsubsection{ELK}
 
 \subsection{Visualisering}
-Figur \ref{fig:visualisering} visar hur delsystemet Visualisering är uppbyggt. Behandlad samt användarindata skickas in. Användarindata består av val av färg, val av egenskap som ska ritas ut, val av transparens etc. Dessa behandlas sedan i visualiseringsmodulen som skapar en bild utifrån dem. Den utritade bilden skickas sedan ut från modulen. Detta är en allmän beskrivning av visualiseringen, för de olika egenskaperna som visualiseras är mittenrektangeln i Figur \ref{fig:visualisering} uppbyggd på olika sätt med olika processorer.
+\label{ch:visualisering}
+Figur \ref{fig:visualisering} visar hur delsystemet Visualisering är uppbyggt. Behandlad samt användarindata skickas in. Användarindata består av val av färg, val av egenskap som ska ritas ut, val av transparens etc. Dessa behandlas sedan i visualiseringsmodulen som skapar en bild utifrån dem. Den utritade bilden skickas sedan ut från modulen. Detta är en allmän beskrivning av visualiseringen, för de olika egenskaperna som visualiseras är mittenrektangeln i figur \ref{fig:visualisering} uppbyggd på olika sätt med olika processorer.
 \label{visualisering}
 \begin{figure}[H]
 	\centering
@@ -247,11 +248,11 @@ Utritningen görs via Inviwos inbyggda funktionalitet för att rendera via OpenG
 % TODO: Fixa nya figurer från inviwo
 Användaren kan ändra inställningar som kontrollerar utseendet på visualiseringarna.
 Denna indata matas in i Inviwos användargränssnitt, %fixa fig
-se Figur 10, och i inställningsrutan för en processor, %fixa fig
-se Figur 11.
+se figur 10, och i inställningsrutan för en processor, %fixa fig
+se figur 11.
 Visualiseringsfunktionaliteten läggas till i form av processorer som via Inviwo tillhandahåller inställningsmöjligheter på det sätt som beskrivits i designspecifikationen \ref{appendix:designspecifikation}. Således blir inte användarinställningar ett eget separat delsystem, utan kommer att bakas in i visualiseringssystemen. Detta görs genom att processorerna är skrivna att exponera de inställningar som användaren är menad att
 justera. Inviwo kommer då automatiskt lägga till inställningarna i rutan, se %fixa figur 
-Figur 11.
+figur 11.
 
 \subsubsection{Interaktivitet}
 Användaren kan modifiera visualiseringen genom att reglera ett intervall av värden för
@@ -272,16 +273,126 @@ I designspecifikationen, se appendix \ref{appendix:designspecifikation} för en 
 % TODO: Lägg till exempel med bild?
 
 \subsubsection{Tillståndstäthet}
-Tillståndstäthet kan visualiseras med en 2D-graf med energn på x-axeln och tillståndstätheten på y-axeln.. se figur %figur och exempel?
-I designspecifikationen, se appendix \ref{appendix:designspecifikation} för e mer detaljerad besrivning av tillståndstäthet.
+Tillståndstäthet kan visualiseras med en 2D-graf med energn på x-axeln och tillståndstätheten på y-axeln. Se figur %figur och exempel?.
+I designspecifikationen, se appendix \ref{appendix:designspecifikation} för en mer detaljerad besrivning av tillståndstäthet.
 % TODO: Lägg till exempel med bild?  
 
+% TODO: Se om detta fortfarande stämmer.
 \subsubsection{Fermi-ytor}
-
+Fermi-ytor visualiseras genom att den 1:a Brillouin-zonen ritas upp för att sedan, innuti denna, rita upp en energi-isoyta (där energin är Fermi-energin). Även godtyckliga energi-isoytor kan ritas upp. Se figur %figur och exempel?
+I designspecfikationen, se appendix \ref{appendix:designspecifikation} för en mer detaljerad beskrivning av Fermi-ytor.
+% TODO: Lägg till exempel med bild?
 
 
 \section{Resultat}
 \label{ch:resultat}
+Projektet bestod i att skapa ett visualiseringsvektyg i Inviwo som ska kunna visualisera resultat från elektronstrukturberäkningar. Visualiserings verktyget ska uppfylla kraven från kravspecifikationen. 
+
+I tabell \ref{table:kravlista generella systemet} för en kravlista med några utvalda krav på det generella systemet. För samtliga krav se kravspecifikationen i appendix \ref{appendix:kravspecifikation}. 
+
+% Utkommenterade krav kanske inte är nödvändiga att ha med i kappan.
+
+% TODO: mer beskrivningar av kraven och hur de uppfylldes?
+\begin{table}[H]
+\caption{Reducerad kravlista för det generella systemet.}
+\begin{center}
+\begin{tabular}{ |p{10mm}|p{20mm}|p{70mm}|p{15mm}|p{15mm}|}
+\hline
+ \textbf{Krav} & \textbf{Förändring} & \textbf{Beskrivning} & \textbf{Prioritet} & \textbf{Uppfyllt}  \\ 
+\hline
+ 5 & Original & Systemet ska implementera, alternativt utöka befintlig implementation, med visualisering av minst två av följande egenskaper:
+  \begin{itemize}
+  \item Elastiska konstanter
+  \item Fermi-ytor
+  \item ELF (Electron Localization Function)
+  \item Krafter på atomer
+  \item Bandstruktur
+  \item Total DOS (Density Of States)
+  \item Parkorrelationsfunktionen
+  \item Illustration av partiell elektrondensitet
+  \end{itemize} & Ska & Ja, för Fermi-ytor och Total DOS  \\
+%\hline
+%6 & Original & Projektgruppen ska undersöka och lära sig om samtliga egenskaper ur listan i kravet ovan. & Ska & Ja \\
+\hline
+7 & Original & Tillhandahållna python-moduler ska kunna anropas med enkla funktionsanrop. & Ska & Ja \\
+%\hline
+%8 & Original & Tillhandahållna python-moduler ska kunna hantera indata. & Ska & Ja \\
+%\hline
+%9 & Original & Tillhandahållna python-moduler ska kunna hantera utdata. & Ska & Ja \\
+\hline
+10 & Original & En beskrivning av vilka utdata en tillhandahållen python-modul producerar ska kunna erhållas. & Ska & ?? \\
+\hline
+11 & Original & En beskrivning av vad en tillhandahållen python-modul gör ska kunna erhållas. & Ska & Ja \\
+%\hline
+%12 & Original & användaren ska kunna ändra indata till python-moduler. & Ska & Ja \\
+\hline
+13 & Original & Användaren ska kunna välja vilken typ av visualisering som ska visas. & Ska & Ja \\
+\hline
+14 & Original & Användaren ska kunna länka samman olika python-moduler. & Ska & Delvis... \\
+\hline
+15 & Original & Systemet ska implementeras i Inviwo. & Ska & Ja \\
+%\hline
+%16 & Original & Tillhandahållna python-moduler ska kunna ta emot en eller flera typer av indata. & Ska & Ja \\
+%\hline
+%17 & Original & Tillhandahållna python-moduler ska kunna ge utdata. & Ska & Ja \\
+\hline
+18 & Original & Tillhandahållna python-moduler ska inte fortskrida som vanligt vid indata av fel typ. & Ska & Ja \\
+\hline
+19 & Original & Tillhandahållna python-moduler ska vid felaktig indata varna användaren. & Ska & Ja \\
+\hline
+\end{tabular}
+\label{table:kravlista generella systemet}
+\end{center}
+\end{table}
+
+I tabell \ref{table:kravlista datakonvertering} ses några av de krav som ställts på delsystemet för datakonvertering. Krav 24 och 29 är krav på vilket beräkningsprogram som systemet ska kunna läsa in resultat ifrån. Krav 25, 26 och 27 är krav på vilka data som ska kunna läsas in och krav 28 är ett krav på till vilket filformat som datan ska konverteras. 
+\begin{table}[H]
+\caption{Reducerad kravlista för delsystemet för datakonvertering.}
+\begin{center}
+\begin{tabular}{ |p{10mm}|p{20mm}|p{70mm}|p{15mm}|p{15mm}|}
+\hline
+ \textbf{Krav} & \textbf{Förändring} & \textbf{Beskrivning} & \textbf{Prioritet} & \textbf{Uppfyllt}  \\ 
+\hline
+24 & Original & Systemet ska kunna läsa in resultat från VASP. & Ska & Ja \\
+\hline
+25 & Original & Systemet ska kunna konvertera data från kristallstrukturberäkningar. & Ska & Ja \\
+\hline
+26 & Original & Systemet ska kunna konvertera data från elektronstrukturberäkningar. & Ska & Ja \\
+\hline
+27 & Original & Systemet ska kunna konvertera data från tillståndstäthetsberäkningar. & Ska & Ja \\
+\hline
+28 & Original & Systemet ska översätta input-filer i textformat till det binära filformatet HDF5. & Ska & Ja \\
+\hline
+29 & Original & Systemet bör kunna läsa in resultat från något annat beräkningsprogram, t.ex. Elk & Bör & Nej \\
+\hline
+\end{tabular}
+\label{table:kravlista datakonvertering}
+\end{center}
+\end{table}
+
+I tabell \ref{table:kravlista visualisering} ses några av de krav som ställts på delsystemet för visualisering. 
+
+\begin{table}[H]
+\caption{Reducerad kravlista för delsystemet för visualisering.}
+\begin{center}
+\begin{tabular}{ |p{10mm}|p{20mm}|p{70mm}|p{15mm}|p{15mm}|}
+\hline
+ \textbf{Krav} & \textbf{Förändring} & \textbf{Beskrivning} & \textbf{Prioritet} & \textbf{Uppfyllt}  \\ 
+\hline
+36 & Original & Systemet ska visualisera projicerad tillståndstäthet. & Ska &  \\
+\hline
+37 & Original & Systemet ska viusalisera kristallstruktur som atompositioner i enhetscellen. & Ska & Ja \\
+\hline
+38 & Original & Systemet ska kunna visualisera den elektrontäthet som resulterar från en beräkning. & Ska & Ja \\
+\hline
+42 & Original & Systemet bör tillåta dynamisk visualisering baserad på en serie atompositioner från utdatafiler. & Bör &  \\
+\hline
+43 & Original & Systemet bör tillåta att visualisering av egenskaper tillhörande atomer bara visas på vissa atomer, som kan väljas dynamiskt med ett musklick. & Bör &  \\
+\hline
+\end{tabular}
+\label{table:kravlista visualisering}
+\end{center}
+\end{table}
 
 \section{Slutsats}
 \label{ch:slutsats}
@@ -297,7 +408,6 @@ I designspecifikationen, se appendix \ref{appendix:designspecifikation} för e m
 \label{appendix:användarmanual}	
 	
 \includepdf[pages={1},pagecommand=\section{Designspecifikation}\label{appendix:designspecifikation}\thispagestyle{empty}]{designspecifikation_10.pdf} \includepdf[pages={2-}]{designspecifikation_10.pdf}
-	
 	
 \includepdf[pages={1},pagecommand=\section{Fördjupningsarbete - Fermi-ytor }\label{appendix:fermi-ytor}\thispagestyle{empty}]{fordjupningsarbete-fermi-ytor_02.pdf}
 \includepdf[pages={2-}]{fordjupningsarbete-fermi-ytor_02.pdf}
