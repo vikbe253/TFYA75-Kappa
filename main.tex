@@ -47,9 +47,17 @@
 
 \LIPStitelsida
 
+%Får väldigt gärna omformuleras och utökas
+%Ska man tacka Per?
+\subsection*{Förord}
+%\addcontentsline{toc}{subsection}{Förord}
+Vi vill rikta ett stort tack till vår handledare Johan Jönsson som varit ett viktigt stöd under arbetets gång. Vi vill även tacka vår beställare Rickard Armiento som vi också har kunnat vända oss till med frågor.
+\newpage
+
+
 \begin{abstract}
 % Kan behöva omformuleras!
-Inom materialfysik är elektronstrukturberäkningar ett viktigt teoretiskt verktyg. För att öka förståelsen samt för att enklare kunna presentera resultat från forskning inom området är det viktigt att kunna göra olika typer av visualiseringar baserat på elektronstrukturberäkningar. Detta dokument är en kappa för slutrapporten för kandidatprojektet i visualisering av elektronstrukturer. Kappan beskriver bland annat projektets problemformulering och resultat, dessutom finns en beskrivning av genomförandet av projektet samt en teknisk beskrivning av det visualiseringsverktyget som tagits fram.
+Det är viktigt att kunna göra olika typer av visualiseringar baserat på elektronstrukturberäkningar, detta för att bland annat kunna presentera resultat från forskning inom materialfysik på ett enklare sätt. Detta dokument är en kappa för slutrapporten för kandidatprojektet i visualisering av elektronstrukturer. Kappan beskriver bland annat projektets problemformulering och resultat, dessutom finns en beskrivning av genomförandet av projektet samt en teknisk beskrivning av det visualiseringsverktyget som tagits fram.
 \newpage
 \end{abstract}
 
@@ -65,8 +73,7 @@ Inom materialfysik är elektronstrukturberäkningar ett viktigt teoretiskt verkt
 
 \addcontentsline{toc}{section}{Dokumenthistorik}
 \begin{LIPSdokumenthistorik}
-  \LIPSversionsinfo{0.1}{2018-02-27}{Första utkast.}{Projektgruppen}{SE}
-    \LIPSversionsinfo{0.2}{2018-03-05}{Andra utkast.}{Projektgruppen}{DOK}
+  \LIPSversionsinfo{0.1}{2018-}{Första utkast.}{Projektgruppen}{}
 \end{LIPSdokumenthistorik}
 \newpage
 \pagenumbering{arabic}
@@ -244,21 +251,31 @@ Delsystemet ritar ut bilder utefter den behandlade datan. Utritningen ger en vis
 Utritningen görs via Inviwos inbyggda funktionalitet för att rendera via OpenGL. 
 
 \subsubsection{Användarindata}
-% TODO: Fixa nya figurer från inviwo
 Användaren kan ändra inställningar som kontrollerar utseendet på visualiseringarna.
-Denna indata matas in i Inviwos användargränssnitt, %fixa fig
-se figur XX, och i inställningsrutan för en processor, %fixa fig
-se figur YY.
+Denna indata matas in i Inviwos användargränssnitt och i inställningsrutan för en processor. Figur \ref{fig:interface} visar vad användaren ser när ser när ELF för diamant visualiseras, längst till vänster i figuren ses ett fönster mer Properties, i detta fall för processorn ELF raycasting som kan hittas i närverketlängst till höger i figuren. I mitten av bilden ligger den utritade bilden. Bilden kan roteras genom att klicka och dra i den. I Properties finns något som heter Transfer function, i den kan användaren ändra transparens/opacitet samt färg, se figur \ref{fig:transferfunction}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.3]{inviwo_interface_elf.png}
+	\caption{Bild av vad användaren ser när ELF visualiseras, i detta fall för diamant.}
+	\label{fig:interface}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.55]{transferfunction_elf.png}
+	\caption{Transfer function property där transparens och färg kan ställlas in.}
+	\label{fig:transferfunction}
+\end{figure}
+
 Visualiseringsfunktionaliteten läggas till i form av processorer som via Inviwo tillhandahåller inställningsmöjligheter på det sätt som beskrivits i designspecifikationen \ref{appendix:designspecifikation}. Således blir inte användarinställningar ett eget separat delsystem, utan kommer att bakas in i visualiseringssystemen. Detta görs genom att processorerna är skrivna att exponera de inställningar som användaren är menad att
-justera. Inviwo kommer då automatiskt lägga till inställningarna i rutan, se %fixa figur 
-figur YY.
+justera. Inviwo kommer då automatiskt lägga till inställningarna i rutan.
 
 \subsubsection{Interaktivitet}
 Användaren kan modifiera visualiseringen genom att reglera ett intervall av värden för
 någon egenskap, där full transparens fås för alla värden inom intervallet, rotera 3D-bilder etc.
 Ny användarindata, som skickas in efter att den första bilden har ritats upp, skickas tillbaka till
-visualiseringsmodulen för att utföra en ny rendering.
-% TODO: Lägg till exempel med bild?
+visualiseringsmodulen för att utföra en ny rendering. 
 
 \subsubsection{Kristallstruktur}
 Kristallstruktur visualiseras som atompositioner i enhetscellen. Sfärer som representerar atomer  kan  ritas  ut  genom  volymsrendering. % figur och exempel?
@@ -268,22 +285,22 @@ hur detta byggs upp.
 
 
 \subsubsection{Elektrontäthet}
-Elektrontäthet visualiseras genom volymsrendering. Det är alltså sannolikheten för att hitta elektronener på olika positioner som visualiseras. Se figur %figur och exempel?
+Elektrontäthet visualiseras genom volymsrendering. Det är alltså sannolikheten för att hitta elektronener på olika positioner som visualiseras. %figur och exempel?
 I designspecifikationen, se appendix \ref{appendix:designspecifikation}, finns en mer detaljerad beskrivning av elektrontäthet.
 % TODO: Lägg till exempel med bild?
 
 \subsubsection{ELF}
-Electron Location Function (ELF) visualiseras på liknande sätt som elektrontäthet eftersom även det är volymdata som ska visualiseras. Hur ELF visualiseras beskrivs mer detaljerat i den tekniska dokumentationen, se appendix \ref{appendix:tekniskdokumentation}.
+Electron Location Function (ELF) visualiseras på liknande sätt som elektrontäthet eftersom även det är volymdata som ska visualiseras. Hur ELF visualiseras beskrivs mer detaljerat i den tekniska dokumentationen, se appendix \ref{appendix:teknisk-dokumentation}.
 
 \subsubsection{Tillståndstäthet}
-Tillståndstäthet visualiseras med en 2D-graf med energn på x-axeln och tillståndstätheten på y-axeln. Se figur %figur och exempel?.
+Tillståndstäthet visualiseras med en 2D-graf med energn på x-axeln och tillståndstätheten på y-axeln.  %figur och exempel?.
 I designspecifikationen, se appendix \ref{appendix:designspecifikation}, finns en mer detaljerad besrivning av tillståndstäthet.
 % TODO: Lägg till exempel med bild?  
 
 
 % TODO: Se om detta fortfarande stämmer.
 \subsubsection{Fermi-ytor}
-Fermi-ytor visualiseras genom att den 1:a Brillouin-zonen ritas upp för att sedan, innuti denna, rita upp en energi-isoyta (där energin är Fermi-energin). Även godtyckliga energi-isoytor kan ritas upp. Se figur %figur och exempel?
+Fermi-ytor visualiseras genom att den 1:a Brillouin-zonen ritas upp för att sedan, innuti denna, rita upp en energi-isoyta (där energin är Fermi-energin). Även godtyckliga energi-isoytor kan ritas upp.  %figur och exempel?
 I designspecfikationen, se appendix \ref{appendix:designspecifikation},  finns en mer detaljerad beskrivning av Fermi-ytor.
 % TODO: Lägg till exempel med bild?
 
@@ -293,7 +310,7 @@ I designspecfikationen, se appendix \ref{appendix:designspecifikation},  finns e
 Projektet bestod i att skapa ett visualiseringsvektyg i Inviwo som ska kunna visualisera resultat från elektronstrukturberäkningar. Det framtagna visualiseringsverktyget ska uppfylla kraven från kravspecifikationen, nedan beskrivs några av kraven som ställts på systemet samt huruvida dessa är uppfyllda.
 
 \subsection{Krav på systemet}
-I tabell \ref{table:kravlista generella systemet} för en kravlista med några utvalda krav på det generella systemet. För samtliga krav se kravspecifikationen i appendix \ref{appendix:kravspecifikation}. Krav fem är ett krav på egenskaper som ska kunna visualiseras. Projektgruppen valde att implementera visualisering av Fermi-ytor och Total DOS. 2017 års projektgrupp i visualisering implemeterade visualisering av Total DOS, detta års arbete bestod i att uppdatera den skrivna koden till att vara kompatibel med version 0.9.9 av Inviwo. Att koden ska fungera för version 0.9.9 eller senare versioner av Inviwo var ett av kraven på systemet. 
+I tabell \ref{table:kravlista generella systemet} för en kravlista med några utvalda krav på det generella systemet. För samtliga krav se kravspecifikationen i appendix \ref{appendix:kravspecifikation}. Krav fem är ett krav på egenskaper som ska kunna visualiseras. Projektgruppen valde att implementera visualisering av Fermi-ytor och Total DOS, men även visualisering av ELF har implementerats. 2017 års projektgrupp i visualisering implemeterade visualisering av Total DOS och ELF, detta års arbete bestod i att uppdatera den skrivna koden för visualisering av detta till att vara kompatibel med version 0.9.9 av Inviwo. Krav 45 är ett ska krav som säger att koden ska fungera för version 0.9.9 eller senare versioner av Inviwo. Att uppdatera befintlig kod visade sig bli en stor del av arbetet eftersom tidigar versionen av Inviwo skilde sig mycket från version 0.9.9.
  
 % Utkommenterade krav kanske inte är nödvändiga att ha med i kappan.
 
@@ -345,6 +362,9 @@ I tabell \ref{table:kravlista generella systemet} för en kravlista med några u
 \hline
 19 & Original & Tillhandahållna python-moduler ska vid felaktig indata varna användaren. & Ska & Ja \\
 \hline
+45 & Original & Koden ska fungera för Inviwo 0.9.9 eller någon efterkommande version. & Ska & Ja \\
+\hline
+
 \end{tabular}
 \label{table:kravlista generella systemet}
 \end{center}
@@ -444,13 +464,13 @@ Figur \ref{fig:visualisering_NaCl_slice} är ett exempel på visualisering av el
 \subsection{Användning}
 För närmare beskrivning av hur verktyget används se användarmanualen i appendix \ref{appendix:användarmanual}. Det framtagna visualiseringsvertyget användas genom att öppna programmet Inviwo och där ifrån köra önskat Python-skript. Python-skript finns för samtliga typer av visualiseringar och kräver endast små ändringar i koden för att köras. Vilka ändringar som behöver göras beskrivs dels i användarmanualen men även som kommentarer i skripten. % TODO: lägg till några exempel bilder från användamanual?
 
+% TODO: Utöka.
 \section{Slutsats}
 \label{ch:slutsats}
-% Ska vi ha ett förord där man tackar eller en egen rubrik?
-%Får väldigt gärna omformuleras och utökas
-%Ska man tacka Per?
-\section{Tack till}
-Vi vill rikta ett stort tack till vår handledare Johan Jönsson som varit ett viktigt stöd under arbetets gång. Vi vill även tacka vår beställare Rickard Armiento som vi också har kunnat vända oss till med frågor.
+Syftet med detta projekt var inte endast att ta fram ett visualiseringsverktyg utan även att ge projektmedlemmarna erfarenhet av att arbeta i projekt. 
+
+\subsection{Utförande}
+I början av projektet bestod arbetet främst i att skriva de olika dokumenten som projektet sedan skulle utgå ifrån. Detta var dels svårt eftersom vissa delar var svåra att få grepp om utan att faktiskt sätta sig ner och göra det, och dels var det väldigt nyttigt eftersom det projektgruppen tvingades att sätta sig in i arbetet, planera och diskutera eventuella problem. 
 
 
 
