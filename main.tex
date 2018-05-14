@@ -57,7 +57,7 @@ Vi vill rikta ett stort tack till vår handledare Johan Jönsson som varit ett v
 
 \begin{abstract}
 % Kan behöva omformuleras!
-Det är viktigt att kunna göra olika typer av visualiseringar baserat på elektronstrukturberäkningar, detta för att bland annat kunna presentera resultat från forskning inom materialfysik på ett enklare sätt. Detta dokument är en kappa för slutrapporten för kandidatprojektet i visualisering av elektronstrukturer. Kappan beskriver bland annat projektets problemformulering och resultat, dessutom finns en beskrivning av genomförandet av projektet samt en teknisk beskrivning av det visualiseringsverktyget som tagits fram.
+Att kunna göra olika typer av visualiseringar baserat på elektronstrukturberäkningar är viktigt, bland annat för att kunna presentera resultat från forskning inom materialfysik på ett enklare sätt. Detta dokument är en kappa för slutrapporten för kandidatprojektet i visualisering av elektronstrukturer. Kappan beskriver bland annat projektets problemformulering och resultat, dessutom finns en beskrivning av genomförandet av projektet samt en teknisk beskrivning av det visualiseringsverktyg som tagits fram.
 \newpage
 \end{abstract}
 
@@ -80,29 +80,29 @@ Det är viktigt att kunna göra olika typer av visualiseringar baserat på elekt
 
 \section{Inledning}
 \label{ch:inledning}
-Dokumentet är en kappa för slutrapporten för kandidatprojektet i visualisering av elektronstrukturer. Visualisering av elektronstrukturer är ett av projekten i kursen TFYA75 vid
+Detta dokument är en kappa för slutrapporten för kandidatprojektet i visualisering av elektronstrukturer. Visualisering av elektronstrukturer är ett av projekten i kursen TFYA75 vid
 Linköpings universitet. 
 
-Inom materialfysik är elektronstrukturberäkningar ett viktigt teoretiskt verktyg. Detta för att få en så bra förståelse som möjligt av hur olika material är uppbyggda, bland annat vad gäller kristallers egenskaper sett ur ett kvantmekaniskt perspektiv. Det kan exempelvis handla om att man vill ta reda på olika materials egenskaper vad gäller värmeledningsförmåga, strömledningsförmåga etc.
+Inom materialfysik är elektronstrukturberäkningar ett viktigt teoretiskt verktyg. Detta för att få en så bra förståelse som möjligt av hur olika material är uppbyggda, bland annat vad gäller kristallers egenskaper sett ur ett kvantmekaniskt perspektiv. Det kan exempelvis handla om att man vill ta reda på olika materials egenskaper vad gäller värmeledningsförmåga, strömledningsförmåga, etc.
 
-För att öka förståelsen samt för att enklare kunna presentera resultat från forskning inom området är det viktigt att kunna göra olika typer av visualiseringar baserat på elektronstrukturberäkningar.
+För att öka förståelsen samt för att enklare kunna presentera resultat från forskning inom området underlättar det att kunna göra olika typer av visualiseringar baserat på elektronstrukturberäkningar.
 
-I många av de system som används för att utföra dessa beräkningar, exempelvis VASP, ges ingen eller begränsad möjlighet till detta. Vidare är de system som idag finns tillgängliga för visualisering förhållandevis ineffektiva, dåligt standardiserade samt har få visualiseringsfunktioner.
+I många av de system som används för att utföra dessa beräkningar, exempelvis programmet VASP som utför elektronstruktur-och-molekylärdynamikberäkningar, ges ingen eller begränsad möjlighet till detta. Vidare är de system som idag finns tillgängliga för visualisering förhållandevis ineffektiva, dåligt standardiserade, samt har få visualiseringsfunktioner.
 
 Projektgruppen har vidareutvecklat och utökat det system som togs fram av 2017 års projektgrupp. Utöver det konkreta målet med utvecklingen av mjukvara för visualisering ska även projektet ge projektmedlemmarna erfarenhet av att arbeta i projekt och utöka deras förmåga till analytiskt och fysikaliskt tänkande för att ge värdefull erfarenhet inför arbetslivet.
 
 Kappan ger en översikt över hela projektet och består av följande delar:
 
 \begin{itemize}
-	\item \textbf{Problemformulering}, avsnitt \ref{ch:problemformulering} och \textbf{Kunskapsbas}, avsnitt \ref{ch:kunskapsbas}, beskriver själva förarbetet i projektet.
+	\item \textbf{Problemformulering}, avsnitt \ref{ch:problemformulering}, och \textbf{Kunskapsbas}, avsnitt \ref{ch:kunskapsbas}, beskriver själva förarbetet i projektet.
 	
-	\item \textbf{Fördjupningsarbeten}, se avsnitt \ref{ch:fördjupningsarbeten} beskriver kortfattat de fördjupningsområden som projektgruppen behandlat.
+	\item \textbf{Fördjupningsarbeten}, se avsnitt \ref{ch:fördjupningsarbeten}, beskriver kortfattat de fördjupningsområden som projektgruppen behandlat.
 	
-	\item \textbf{Fasplan}, avsnitt \ref{ch:fasplan} beskriver överskådligt hur projektet har genomförts.
+	\item \textbf{Fasplan}, avsnitt \ref{ch:fasplan}, beskriver överskådligt hur projektet har genomförts.
 
-	\item \textbf{Teknisk beskrivning}, avsnitt \ref{ch:teknisk-beskrivning} beskriver överskådligt hur systemet är uppbyggt.
+	\item \textbf{Teknisk beskrivning}, avsnitt \ref{ch:teknisk-beskrivning}, beskriver överskådligt hur systemet är uppbyggt.
 	
-	\item \textbf{Resultat}, avsnitt \ref{ch:resultat} och \textbf{Slutsats}, avsnitt \ref{ch:slutsats} beskriver vilka krav som är uppfyllda och hur det slutgiltiga resultatet blev samt sammanfattar projektet i sen helhet.
+	\item \textbf{Resultat}, avsnitt \ref{ch:resultat}, och \textbf{Slutsats}, avsnitt \ref{ch:slutsats}, beskriver vilka krav som är uppfyllda och hur det slutgiltiga resultatet blev samt sammanfattar projektet i sin helhet.
 \end{itemize}
 
 % TODO: Ska parter, användning och begränsningar vara med?
@@ -111,12 +111,11 @@ Rickard Armiento har beställt systemet som är beskrivet i kappan. Medlemmarna 
 
 
 \subsection{Användning}
-Denna produkt kommer användas vid Linköpings universitet för att analysera data från elektronstruktursberäkningar.
+Denna produkt kommer användas vid Linköpings universitet för att analysera data från elektronstrukturberäkningar.
 
 \subsection{Begränsningar}
 I projektet har visualiseringsverktyget Inviwo och
-programmeringspråken Python och C++ användts. Det har inte utretts
-om det är bättre att använda andra verktyg.
+programmeringspråken Python och C++ användts. Det har inte utretts huruvida andra verktyg hade varit lämpligare.
 
 \subsection{Definitioner}
 
@@ -135,23 +134,20 @@ processorer.
 \textbf{Inviwo} (Interactive Visualization Workshop) är programvara
 för visualisering som tillhandahåller en nätverksredigerare för
 designen av dataflödesnätverk. Noderna i dessa dataflödesnätverk
-kallas processorer. Indata till nätverket behandlas i dessa
+kallas processorer. Indata till nätverken behandlas i dessa
 processorer och utdata genereras.
 \cite{Inviwo}
 
-\textbf{Python} är ett programmeringsspråk.
-\cite{Python}
-\newline
-I Inviwo används Python för att knyta samman processorer.
+\textbf{Python} är ett programmeringsspråk \cite{Python}. I Inviwo används Python för att knyta samman processorer.
 
 
 \section{Problemformulering}
 \label{ch:problemformulering}
 
-I projektdirektivet, se appendix \ref{appendix:projektdirektiv}, ges en översiktlig bild av de krav som kan komma att ställas på systemet. Utifrån projektdirektivet har projektgruppen skapat en kravspecifikation, se appendix \ref{appendix:kravspecifikation} med de krav som ställs på sytemet och även de generella krav som ställs på projektet och dokumentationen.
+I projektdirektivet, se appendix \ref{appendix:projektdirektiv}, ges en översiktlig bild av de krav som kan komma att ställas på systemet. Utifrån projektdirektivet har projektgruppen skapat en kravspecifikation, se appendix \ref{appendix:kravspecifikation}, med de krav som ställs på sytemet och även de generella krav som ställs på projektet och dokumentationen.
 
-Systemet ska vara ett verktyg för att visualiserar olika egenskaper från elektonstrukturberäkningar och själva visualiseringen ska ske i programvaran Inviwo\cite{Inviwo}.
-Systemet ska vara uppbyggt av två huvudsakliga delsystem, ett som hanterar konvertering av data och ett annat som visualiserar den konverterade datan, se figur \ref{fig:grov-skiss}. Vilken data som ska visualiseras ska kunna väljas av användaren. Systemet ska vara en vidareutveckling av det system som togs fram av 2017 års projektgrupp. Projektegruppen ska utöka och uppdatera befintlig kod för att uppfylla de krav som ställts i kravspecifikationen.
+Systemet ska vara ett verktyg för att visualisera olika egenskaper från elektonstrukturberäkningar och själva visualiseringen ska ske i programvaran Inviwo \cite{Inviwo}.
+Systemet ska vara uppbyggt av två huvudsakliga delsystem: ett som hanterar konvertering av data och ett annat som visualiserar den konverterade datan, se figur \ref{fig:grov-skiss}. Vilken data som visualiseras ska kunna väljas av användaren. Systemet ska vara en vidareutveckling av det system som togs fram av 2017 års projektgrupp. Projektgruppen ska utöka och uppdatera befintlig kod för att uppfylla de krav som ställts i kravspecifikationen.
 
 \begin{figure}[H]
 	\centering
@@ -165,26 +161,26 @@ Systemet ska vara uppbyggt av två huvudsakliga delsystem, ett som hanterar konv
 \section{Kunskapsbas}
 \label{ch:kunskapsbas}
 Projektgruppen har efter att ha tagit del av projektdirektivet, se appendix \ref{appendix:projektdirektiv},
-skrivit en kravspecifikation, se appendix \ref{appendix:kravspecifikation}. Därefter skrevs en projektplan, se appendix \ref{appendix:projektplan}, tidplan, se appendix \ref{appendix:tidplan} och en  systemskiss, se appendix \ref{appendix:systemskiss} enligt LIPS-modellen \cite{LIPS}. 
+skrivit en kravspecifikation, se appendix \ref{appendix:kravspecifikation}. Därefter skrevs en projektplan, se appendix \ref{appendix:projektplan}, tidplan, se appendix \ref{appendix:tidplan} och en  systemskiss, se appendix \ref{appendix:systemskiss}, enligt LIPS-modellen \cite{LIPS}. 
 % TODO: Fixa ref för LIPS
-Dessa dokument har sedan fungerat som en utgångspunkt för projektets utforming. Utöver dessa har en designspecifikation, se appendix \ref{appendix:designspecifikation} skrivits som är en fördjupning i systemskissen och ger en mer detaljerad beskrivning av systemet.
+Dessa dokument har sedan fungerat som en utgångspunkt för projektets utforming. Utöver dessa har en designspecifikation skrivits, se appendix \ref{appendix:designspecifikation}, som är en fördjupning i systemskissen och ger en mer detaljerad beskrivning av systemet.
 
-Projektgruppen har skrivit två fördjupningsarbeten, se appendix \ref{appendix:fermi-ytor} och \ref{appendix:visualisering} knutna till projektarbetet.
+Projektgruppen har skrivit två fördjupningsarbeten, se appendix \ref{appendix:fermi-ytor} och \ref{appendix:visualisering}, knutna till projektarbetet.
 
-Projektgruppen har tagit del av ett antal föreläsningar om dokumentationen i projektet. Utöver det har även föreläsningar i Inviwo och Python hållts samt laborationer i beräkningsfysik och Python-programmering. 
+Projektgruppen har tagit del av ett antal föreläsningar om dokumentationen i projektet. Utöver dessa har även föreläsningar i Inviwo och Python hållts samt laborationer i beräkningsfysik och Python-programmering. 
 
 \section{Fasplan}
 \label{ch:fasplan}
 Projektet drivs enligt LIPS-modellen, som är en modell med regler, instruktioner och mallar för att bedriva projekt. Projektet delas upp i tre faser - före, under, och efter.
 
 \subsection{Före-fas}
-Före-fasen är ämnad att undersöka om projektet bör genomföras och, om så är fallet, definiera och konkretisera projektets mål samt organisera arbetet som krävs för att uppnå dessa. Under före-fasen skrivs bland annat ett projektdirektiv, se appendix \ref{appendix:projektdirektiv}, en kravspecifikation, se appendix \ref{appendix:kravspecifikation}, en systemskiss, se appendix \ref{appendix:systemskiss} och en projektplan, se appendix \ref{appendix:projektplan}. Projektdirektivet skrevs innan projektgruppen skapades och gavs till projektgruppen vid projektets start.
+Före-fasen är ämnad att undersöka om projektet bör genomföras och, om så är fallet, definiera och konkretisera projektets mål samt organisera arbetet som krävs för att uppnå dessa. Under före-fasen skrivs bland annat ett projektdirektiv, se appendix \ref{appendix:projektdirektiv}, en kravspecifikation, se appendix \ref{appendix:kravspecifikation}, en systemskiss, se appendix \ref{appendix:systemskiss}, och en projektplan, se appendix \ref{appendix:projektplan}. Projektdirektivet skrevs innan projektgruppen skapades och gavs till projektgruppen vid projektets start.
 Projektgruppen har under före-fasen skrivit ett gruppkontrakt, se appendix \ref{appendix:Gruppkontrakt}, en kravspecifikation, en systemskiss samt en projektplan.
 
 \subsection{Under-fas}
 Under  under-fasen  utförs  det  arbete  som  leder  till  att  projektets  krav  uppfylls.  Projektgrup-
-pen skriver en designspecifikation, se appendix \ref{appendix:designspecifikation}
-som beskriver hur systemet ska konstrueras i mer detalj än
+pen skriver en designspecifikation, se appendix \ref{appendix:designspecifikation},
+som beskriver hur systemet ska konstrueras mer detaljerat än
 systemskissen. Projektgruppen arbetar sedan med att, utgående från denna designspecifikation, konstruera och testa systemet. En teknisk dokumentation, se appendix \ref{appendix:teknisk-dokumentation}, skrivs parallellt med systemets konstruktion för att reflektera den faktiska implementationen av idéerna beskrivna i designspecifikationen. 
 
 Projektgruppen har också skrivit två fördjupningsarbeten knutna till projektet. Det ena, se appendix \ref{appendix:fermi-ytor}, behandlar Fermi-ytor som är ett av fördjupningsområdena i projektet och som ska visualiseras. Det andra, se appendix \ref{appendix:visualisering}, behandlar visualisering som är en mer generell del av projektet. 
@@ -195,20 +191,19 @@ Under efter-fasen överförs projektresultatet till beställaren och projektet a
 
 \section{Fördjupningsarbeten}
 \label{ch:fördjupningsarbeten}
-Nedan beskrivs kortfattat de fördjupningsarbeten som gjorts under projektet. Dessa finns även i sin helhet i appendix \ref{appendix:fermi-ytor} och \ref{appendix:visualisering}. 
+Nedan beskrivs kortfattat de fördjupningsarbeten som gjorts under projektet. Dessa finns i sin helhet i appendix \ref{appendix:fermi-ytor} och \ref{appendix:visualisering}. 
 \subsection{Fermi-ytor}
-Syftet med fördjupningsarbetet om Fermi-ytor var att besvara följande frågor: Vad är Fermi-ytor och hur kan dessa beräknas numeriskt? Detta var av intresse för projektet eftersom en del av det bestod i att visualisera Fermi-ytor. Arbetet beskriver kortfattat begrepp inom fasta tillståndets fysik som är av betydelse för att förstå vad Fermi-ytor är, för att sedan gå in på hur dessa kan beräknas numeriskt.
+Syftet med fördjupningsarbetet om Fermi-ytor var att besvara följande frågor: Vad är Fermi-ytor och hur kan dessa beräknas numeriskt? Detta var av intresse för projektet eftersom en del av det bestod av att visualisera Fermi-ytor. Arbetet beskriver kortfattat begrepp inom fasta tillståndets fysik som är av betydelse för att förstå vad Fermi-ytor är, för att sedan gå in på hur dessa kan beräknas numeriskt.
 
 \subsection{Visualisering av volymdata}
-I fördjupningsarbetet, visualisering av volymsdata tittades det närmare på ett par av de metoder mjukvaran Inviwo använder sig av. Detta för att kunna göra en jämförelse av både prestanda och resultat.
+I fördjupningsarbetet om visualisering av volymdata tittades det närmare på ett par av de metoder mjukvaran Inviwo använder sig av. Detta för att kunna göra en jämförelse av både prestanda och resultat mellan de två metoderna.
 \section{Teknisk beskrivning}
 \label{ch:teknisk-beskrivning}
 
 % TODO: En beskrivning av det  färdigställda systemet kan ses i figur. lägg till fig
-Systemet hanterar indata från VASP.Datan kommer från elektronstrukturberäkningar och konverteras till HDF5-format för att därefter visualiseras. Användaren kan välja vad som ska visualiseras, kontrollera renderingens utseende och ställa in egenskaper såsom färg, transparens och rotation.
-Systemet har delats in i delsystem och dessa har utvecklas och testas enskilt i den mån det inte funnits beroenden till andra delsystem.
+Systemet hanterar indata från VASP. Datan kommer från elektronstrukturberäkningar och konverteras till HDF5-format för att därefter visualiseras. Användaren kan välja vad som ska visualiseras, kontrollera renderingens utseende och ställa in egenskaper såsom färg, transparens, och rotation. Systemet har delats in i delsystem och dessa har utvecklats och testats enskilt i den mån det inte funnits beroenden till andra delsystem.
 
-I avsnitt \ref{ch:datakonvertering} och \ref{ch:visualisering} nedan ges en övergripande inblick i det två stora delsystemen och deras delsystem. För en mer detaljerad teknisk beskriving av systemet se den tekniska dokumentationen, se appendix \ref{appendix:teknisk-dokumentation}.
+I avsnitt \ref{ch:datakonvertering} och \ref{ch:visualisering} nedan ges en övergripande inblick i det två huvudsakliga delsystemen och deras delsystem. För en mer detaljerad teknisk beskriving av systemet se den tekniska dokumentationen, se appendix \ref{appendix:teknisk-dokumentation}.
 
 \subsection{Datakonvertering}
 \label{ch:datakonvertering}
@@ -222,22 +217,22 @@ Detta avsnitt behandlar delsystemet datakonvertering, figur \ref{fig:konverterin
 \end{figure}
 
 \subsubsection{HDF5}
-Systemet kan hantera de olika utdatafilerna från VASP. Detta görs genom att konvertera datan till HDF5-format.
+Systemet kan hantera olika utdatafiler från VASP. Detta görs genom att datan konverteras till HDF5-format.
 HDF5 är ett filformat som är designat för att hantera stora mängder data på ett flexibelt sätt \cite{hdf5}.
-HDF5 har flera olika datatyper, se Figur 3, och ett HDF5-objekt som antingen är lagrat på disk eller hålls i minnet är uppdelat i två huvudsakliga underobjekt, nämligen grupper och dataset.
+HDF5 har flera olika datatyper, se figur 3, och ett HDF5-objekt som antingen är lagrat på disk eller hålls i minnet är uppdelat i två huvudsakliga underobjekt, nämligen grupper och dataset.
 %ref[8, s. 3-4]
 
-Alla HDF5-objekt har en rotgrupp som äger alla andra objekt i datastrukturen. Denna grupp innehåller i sin tur all övrig data i form av andra grupper, länkar till andra grupper eller dataset.
+Alla HDF5-objekt har en rotgrupp som äger alla andra objekt i datastrukturen. Denna grupp innehåller i sin tur all övrig data i form av andra grupper, länkar till andra grupper, eller dataset.
 Dataset innehåller rådata av något slag. Rådata kan i sammanhanget vara bilder, utdata från beräkningar, programdata, etc. %ref [8, s. 4-5]
-I desingspesifikationen, se appendix \ref{appendix:designspecifikation} ges en mer detaljerad beskriving av HDF5.
+I designspecifikationen, se appendix \ref{appendix:designspecifikation}, ges en mer detaljerad beskriving av HDF5.
 
 \subsubsection{VASP}
 Från beräkningsprogrammet VASP fås en rad olika utdatafiler. Dessa listas och beskrivs i designspecifikationen 
-(se appendix \ref{appendix:designspecifikation}). Ur dessa utdatafiler läses saker som atompositionsdata, gittervektorer, elektrontäthetsdata, tillståndstäthetsdata, Fermi-energi och så vidare för att kunna visualisera kristallstrukturer, elektrontäthet, ELF, tillståndstäthet och Fermi-ytor. I designspecifikationen beskrivs närmare vad som läses från vilka utdata filer. 
+(se appendix \ref{appendix:designspecifikation}). Ur dessa utdatafiler läses saker som atompositionsdata, gittervektorer, elektrontäthetsdata, tillståndstäthetsdata, Fermi-energi, och så vidare för att kunna visualisera kristallstrukturer, elektrontäthet, ELF, tillståndstäthet, och Fermi-ytor. I designspecifikationen beskrivs närmare vad som läses från vilka utdatafiler. 
 
 \subsection{Visualisering}
 \label{ch:visualisering}
-Figur \ref{fig:visualisering} visar hur delsystemet för visualisering är uppbyggt. Behandlad samt användarindata skickas in. Användarindata består av val av färg, val av egenskap som ska ritas ut, val av transparens etc. Dessa behandlas sedan i visualiseringsmodulen som skapar en bild utifrån dem. Den utritade bilden skickas sedan ut från modulen. Detta är en allmän beskrivning av visualiseringen, för de olika egenskaperna som visualiseras är mittenrektangeln i figur \ref{fig:visualisering} uppbyggd på olika sätt med olika processorer.
+Figur \ref{fig:visualisering} visar hur delsystemet för visualisering är uppbyggt. Behandlad data samt användarindata skickas in. Användarindata består av val av färg, val av egenskap som ska ritas ut, val av transparens etc. Dessa behandlas i visualiseringsmodulen som skapar en bild utifrån dem. Den utritade bilden skickas sedan ut från modulen. Detta är en allmän beskrivning av visualiseringen - mittenrektangeln i figur \ref{fig:visualisering} är för de olika egenskaperna som visualiseras uppbyggd på olika sätt med olika processorer.
 \label{visualisering}
 \begin{figure}[H]
 	\centering
@@ -252,7 +247,7 @@ Utritningen görs via Inviwos inbyggda funktionalitet för att rendera via OpenG
 
 \subsubsection{Användarindata}
 Användaren kan ändra inställningar som kontrollerar utseendet på visualiseringarna.
-Denna indata matas in i Inviwos användargränssnitt och i inställningsrutan för en processor. Figur \ref{fig:interface} visar vad användaren ser när ser när ELF för diamant visualiseras, längst till vänster i figuren ses ett fönster mer Properties, i detta fall för processorn ELF raycasting som kan hittas i närverketlängst till höger i figuren. I mitten av bilden ligger den utritade bilden. Bilden kan roteras genom att klicka och dra i den. I Properties finns något som heter Transfer function, i den kan användaren ändra transparens/opacitet samt färg, se figur \ref{fig:transferfunction}.
+Denna indata matas in i Inviwos användargränssnitt via inställningsrutan för en processor. Figur \ref{fig:interface} visar vad användaren ser när ser när ELF-data för diamant visualiseras. Längst till vänster i figuren ses ett fönster med Properties, i detta fall för processorn ELF raycasting som kan hittas i närverket längst till höger i figuren. I mitten av figuren ligger den utritade bilden. Bilden kan roteras genom att klicka och dra i den. I fönstret Properties finns en Property vid namn Transfer function, med hjälp av vilken användaren kan ändra transparens/opacitet samt färg, se figur \ref{fig:transferfunction}.
 
 \begin{figure}[H]
 	\centering
@@ -268,12 +263,12 @@ Denna indata matas in i Inviwos användargränssnitt och i inställningsrutan f�
 	\label{fig:transferfunction}
 \end{figure}
 
-Visualiseringsfunktionaliteten läggas till i form av processorer som via Inviwo tillhandahåller inställningsmöjligheter på det sätt som beskrivits i designspecifikationen \ref{appendix:designspecifikation}. Således blir inte användarinställningar ett eget separat delsystem, utan kommer att bakas in i visualiseringssystemen. Detta görs genom att processorerna är skrivna att exponera de inställningar som användaren är menad att
+Visualiseringsfunktionaliteten läggas till i form av processorer som via Inviwo tillhandahåller inställningsmöjligheter på det sätt som beskrivits i designspecifikationen, se appendix \ref{appendix:designspecifikation}. Således blir inte användarinställningar ett eget separat delsystem, utan kommer att bakas in i visualiseringssystemen. Detta görs genom att processorerna är skrivna att exponera de inställningar som användaren är menad att
 justera. Inviwo kommer då automatiskt lägga till inställningarna i rutan.
 
 \subsubsection{Interaktivitet}
 Användaren kan modifiera visualiseringen genom att reglera ett intervall av värden för
-någon egenskap, där full transparens fås för alla värden inom intervallet, rotera 3D-bilder etc.
+någon egenskap där full transparens fås för alla värden inom intervallet, rotera 3D-bilder etc.
 Ny användarindata, som skickas in efter att den första bilden har ritats upp, skickas tillbaka till
 visualiseringsmodulen för att utföra en ny rendering. 
 
@@ -285,32 +280,32 @@ hur detta byggs upp.
 
 
 \subsubsection{Elektrontäthet}
-Elektrontäthet visualiseras genom volymsrendering. Det är alltså sannolikheten för att hitta elektronener på olika positioner som visualiseras. %figur och exempel?
+Elektrontäthet visualiseras genom volymsrendering. Det är sannolikheten för att hitta elektroner på olika positioner som visualiseras. %figur och exempel?
 I designspecifikationen, se appendix \ref{appendix:designspecifikation}, finns en mer detaljerad beskrivning av elektrontäthet.
 % TODO: Lägg till exempel med bild?
 
 \subsubsection{ELF}
-Electron Location Function (ELF) visualiseras på liknande sätt som elektrontäthet eftersom även det är volymdata som ska visualiseras. Hur ELF visualiseras beskrivs mer detaljerat i den tekniska dokumentationen, se appendix \ref{appendix:teknisk-dokumentation}.
+Electron Location Function (ELF)-data visualiseras på liknande sätt som elektrontäthet eftersom även det är volymdata som ska visualiseras. Hur ELF visualiseras beskrivs mer detaljerat i den tekniska dokumentationen, se appendix \ref{appendix:teknisk-dokumentation}.
 
 \subsubsection{Tillståndstäthet}
-Tillståndstäthet visualiseras med en 2D-graf med energn på x-axeln och tillståndstätheten på y-axeln.  %figur och exempel?.
+Tillståndstäthet visualiseras med en 2D-graf med energin på x-axeln och tillståndstätheten på y-axeln.  %figur och exempel?.
 I designspecifikationen, se appendix \ref{appendix:designspecifikation}, finns en mer detaljerad besrivning av tillståndstäthet.
 % TODO: Lägg till exempel med bild?  
 
 
 % TODO: Se om detta fortfarande stämmer.
 \subsubsection{Fermi-ytor}
-Fermi-ytor visualiseras genom att den 1:a Brillouin-zonen ritas upp för att sedan, innuti denna, rita upp en energi-isoyta (där energin är Fermi-energin). Även godtyckliga energi-isoytor kan ritas upp.  %figur och exempel?
+Fermi-ytor visualiseras genom att den 1:a Brillouin-zonen ritas upp för att sedan, inuti denna, rita upp en energi-isoyta (där energin är Fermi-energin). Även godtyckliga energi-isoytor kan ritas upp.  %figur och exempel?
 I designspecfikationen, se appendix \ref{appendix:designspecifikation},  finns en mer detaljerad beskrivning av Fermi-ytor.
 % TODO: Lägg till exempel med bild?
 
 
 \section{Resultat}
 \label{ch:resultat}
-Projektet bestod i att skapa ett visualiseringsvektyg i Inviwo som ska kunna visualisera resultat från elektronstrukturberäkningar. Det framtagna visualiseringsverktyget ska uppfylla kraven från kravspecifikationen, nedan beskrivs några av kraven som ställts på systemet samt huruvida dessa är uppfyllda.
+Projektet bestod av att skapa ett visualiseringsverktyg i Inviwo som ska kunna visualisera resultat från elektronstrukturberäkningar. Det framtagna visualiseringsverktyget ska uppfylla kraven från kravspecifikationen, nedan beskrivs några av kraven som ställts på systemet samt huruvida dessa är uppfyllda.
 
 \subsection{Krav på systemet}
-I tabell \ref{table:kravlista generella systemet} för en kravlista med några utvalda krav på det generella systemet. För samtliga krav se kravspecifikationen i appendix \ref{appendix:kravspecifikation}. Krav fem är ett krav på egenskaper som ska kunna visualiseras. Projektgruppen valde att implementera visualisering av Fermi-ytor och Total DOS, men även visualisering av ELF har implementerats. 2017 års projektgrupp i visualisering implemeterade visualisering av Total DOS och ELF, detta års arbete bestod i att uppdatera den skrivna koden för visualisering av detta till att vara kompatibel med version 0.9.9 av Inviwo. Krav 45 är ett ska krav som säger att koden ska fungera för version 0.9.9 eller senare versioner av Inviwo. Att uppdatera befintlig kod visade sig bli en stor del av arbetet eftersom tidigar versionen av Inviwo skilde sig mycket från version 0.9.9.
+Tabell \ref{table:kravlista generella systemet} är en kravlista med några utvalda krav på det generella systemet. För samtliga krav se kravspecifikationen i appendix \ref{appendix:kravspecifikation}. Krav fem är ett krav på egenskaper som ska kunna visualiseras. Projektgruppen valde att implementera visualisering av Fermi-ytor och Total DOS, men även visualisering av ELF har implementerats. 2017 års projektgrupp i visualisering implementerade ur listan i krav fem visualisering av total DOS, visualisering av ELF-data, och visualisering av bandstruktur. Detta års arbete bestod i att uppdatera majoriteten av den skrivna koden till att vara kompatibel med version 0.9.9 av Inviwo. Krav 45 är ett ska-krav som säger att koden ska fungera för version 0.9.9 eller senare versioner av Inviwo. Att uppdatera befintlig kod visade sig bli en stor del av arbetet eftersom tidigare versioner av Inviwo skilde sig mycket från version 0.9.9.
  
 % Utkommenterade krav kanske inte är nödvändiga att ha med i kappan.
 
@@ -371,7 +366,7 @@ I tabell \ref{table:kravlista generella systemet} för en kravlista med några u
 \end{table}
 
 I listan i krav 5 valde projektgruppen att implementera visualisering av Fermi-ytor och att uppdatera befintlig kod för visualisering av total DOS. % TODO: lägg till visualiseringsbilder av dessa.
-Även befintligkod för visualisering av ELF har uppdaterats, figur \ref{fig:visualisering_diamant_elf} visar visualisering av ELF-data för diamant. 
+Även befintlig kod för visualisering av ELF har uppdaterats. Figur \ref{fig:visualisering_diamant_elf} visar visualisering av ELF-data för diamant. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.2]{Diamant_elf_visualisering.png}
@@ -379,11 +374,11 @@ I listan i krav 5 valde projektgruppen att implementera visualisering av Fermi-y
 	\label{fig:visualisering_diamant_elf}
 \end{figure}
 
-Figur \ref{fig:visualisering_sammanlankning} visar hur visualiseringen för en sammanlänkning mellan utritande av enhetscell och utritande av ELF kan se ut, i detta fall för Al. Detta uppfyller alltså krav 14. Sammanlänkning kan göras mellan kristallstruktur och volymdata (laddningstäthet och ELF) eller mellan kristallstruktur och tillståndstäthet. Det senare gör det möjligt att se projicerad tillståndstäthet genom att klicka på enskilda atomer, vilket är krav 36 i tabell \ref{table:kravlista visualisering}.
+Figur \ref{fig:visualisering_sammanlankning} visar hur visualiseringen för en sammanlänkning mellan utritande av enhetscell och utritande av ELF kan se ut, i detta fall för aluminium. Detta uppfyller alltså krav 14. Sammanlänkning kan göras mellan kristallstruktur och volymdata (laddningstäthet och ELF) eller mellan kristallstruktur och tillståndstäthet. Det senare gör det möjligt att se projicerad tillståndstäthet genom att klicka på enskilda atomer, vilket är krav 36 i tabell \ref{table:kravlista visualisering}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.2]{sammanlankning_visualisering_Al.png}
-	\caption{Data för enhetscell och ELF för Al visualiseras i samma bild.}
+	\caption{Data för enhetscell och ELF för aluminium visualiseras i samma bild.}
 	\label{fig:visualisering_sammanlankning}
 \end{figure}
 
@@ -413,7 +408,7 @@ I tabell \ref{table:kravlista datakonvertering} ses några av de krav som ställ
 \end{table}
 
 
-I tabell \ref{table:kravlista visualisering} ses några av de krav som ställts på delsystemet för visualisering. Visualisering av projicerad tillståndstäthet, kristllstruktur och elektrontäthet implementerades av 2017 års projektgrupp, arbetet detta år bestod i att uppdatera koden för dessa visualiseringar till att vara kompatibla för version 0.9.9 av Inviwo. 
+I tabell \ref{table:kravlista visualisering} ses några av de krav som ställts på delsystemet för visualisering. Visualisering av projicerad tillståndstäthet, kristallstruktur, och elektrontäthet implementerades av 2017 års projektgrupp, och det relaterade arbetet detta år bestod i att uppdatera koden för dessa visualiseringar till att vara kompatibla för version 0.9.9 av Inviwo. 
 
 \begin{table}[H]
 \caption{Reducerad kravlista för delsystemet för visualisering.}
@@ -437,7 +432,7 @@ I tabell \ref{table:kravlista visualisering} ses några av de krav som ställts 
 \end{center}
 \end{table}
 
-Figur \ref{fig:visualisering_TiPO4} är ett exempel på visualisering av kristallstruktur, krav 37. Här är det TiPO4 som ritas ut där de röda sfärerna är syreatomer, de grå är titaniumatomer och de orangea är fosforatomer.
+Figur \ref{fig:visualisering_TiPO4} är ett exempel på visualisering av kristallstruktur, krav 37. Här är det TiPO4 som ritas ut där de röda sfärerna är syreatomer, de grå är titanatomer, och de orangea är fosforatomer.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.2]{TiPO4_visualisering.png}
@@ -445,7 +440,7 @@ Figur \ref{fig:visualisering_TiPO4} är ett exempel på visualisering av kristal
 	\label{fig:visualisering_TiPO4}
 \end{figure}
 
-Figur \ref{fig:visualisering_NaCl_slice} är ett exempel på visualisering av elektrontäthet, krav 38. Här är det laddningstätheten för NaCl som ritas ut. I figur  \ref{fig:visualisering_NaCl_iso} visa också ett exempel på visualisering av laddningstäthet men i detta fall har en isoyta ritats ut för laddningstäthet lika med 0.15, även här för NaCl.
+Figur \ref{fig:visualisering_NaCl_slice} är ett exempel på visualisering av elektrontäthet, krav 38. Här är det laddningstätheten för NaCl som ritas ut. I figur  \ref{fig:visualisering_NaCl_iso} visas även ett exempel på visualisering av laddningstäthet men i detta fall har en isoyta ritats ut för laddningstäthet lika med 0.15, även här för NaCl.
 
 \begin{figure}[H]
 	\centering
@@ -462,7 +457,7 @@ Figur \ref{fig:visualisering_NaCl_slice} är ett exempel på visualisering av el
 \end{figure}
 
 \subsection{Användning}
-För närmare beskrivning av hur verktyget används se användarmanualen i appendix \ref{appendix:användarmanual}. Det framtagna visualiseringsvertyget användas genom att öppna programmet Inviwo och där ifrån köra önskat Python-skript. Python-skript finns för samtliga typer av visualiseringar och kräver endast små ändringar i koden för att köras. Vilka ändringar som behöver göras beskrivs dels i användarmanualen men även som kommentarer i skripten. % TODO: lägg till några exempel bilder från användamanual?
+För närmare beskrivning av hur verktyget används se användarmanualen i appendix \ref{appendix:användarmanual}. Det framtagna visualiseringsvertyget användas genom att öppna programmet Inviwo och därifrån köra önskat Python-skript. Python-skript finns för samtliga typer av visualiseringar och kräver endast små ändringar i koden för att köras. Vilka ändringar som behöver göras beskrivs dels i användarmanualen men även som kommentarer i skripten. % TODO: lägg till några exempel bilder från användamanual?
 
 % TODO: Utöka.
 \section{Slutsats}
