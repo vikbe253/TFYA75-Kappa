@@ -2,7 +2,7 @@
 \defcounter {refsection}{0}\relax 
 \select@language {swedish}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Dokumenthistorik}{vii}{section*.2}
+\contentsline {section}{Dokumenthistorik}{viii}{section*.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1}Inledning}{1}{section.1}
 \defcounter {refsection}{0}\relax 

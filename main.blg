@@ -1,0 +1,16 @@
+[0] Config.pm:354> INFO - This is Biber 2.7 (beta)
+[0] Config.pm:357> INFO - Logfile is 'main.blg'
+[18] biber:303> INFO - === fre maj 18, 2018, 10:53:31
+[27] Biber.pm:360> INFO - Reading 'main.bcf'
+[70] Biber.pm:836> INFO - Found 6 citekeys in bib section 0
+[79] Biber.pm:3671> INFO - Processing section 0
+[88] Biber.pm:3841> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
+[88] bibtex.pm:1424> INFO - Decoding LaTeX character macros into UTF-8
+[91] bibtex.pm:1281> INFO - Found BibTeX data source 'bibliography.bib'
+[97] Utils.pm:164> WARN - year field '1997-2018' in entry 'hdf5' is not an integer - this will probably not sort properly.
+[108] UCollate.pm:68> INFO - Overriding locale 'sv-SE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[108] UCollate.pm:68> INFO - Overriding locale 'sv-SE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[109] Biber.pm:3500> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'sv-SE'
+[112] bbl.pm:608> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[113] bbl.pm:712> INFO - Output to main.bbl
+[113] Biber.pm:110> INFO - WARNINGS: 1
