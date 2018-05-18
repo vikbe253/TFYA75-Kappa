@@ -28,8 +28,8 @@
 \newcommand{\LIPSversion}{0.2}
 \newcommand{\LIPSdatum}{\dagensdatum}
 
-\newcommand{\LIPSgranskare}{}
-\newcommand{\LIPSgranskatdatum}{2018-05-}
+\newcommand{\LIPSgranskare}{DOK}
+\newcommand{\LIPSgranskatdatum}{2018-05-18}
 \newcommand{\LIPSgodkannare}{}
 \newcommand{\LIPSgodkantdatum}{}
 
@@ -71,7 +71,7 @@ Att kunna göra olika typer av visualiseringar baserat på elektronstrukturberä
 \addcontentsline{toc}{section}{Dokumenthistorik}
 \begin{LIPSdokumenthistorik}
   \LIPSversionsinfo{0.1}{2018-05-14}{Första utkast.}{Projektgruppen}{PL}
-  \LIPSversionsinfo{0.2}{2018-05-}{Andra utkast.}{Projektgruppen}{}
+  \LIPSversionsinfo{0.2}{2018-05-18}{Andra utkast.}{Projektgruppen}{DOK}
 \end{LIPSdokumenthistorik}
 \newpage
 \pagenumbering{arabic}
@@ -81,7 +81,7 @@ Att kunna göra olika typer av visualiseringar baserat på elektronstrukturberä
 Detta dokument är en kappa för slutrapporten för kandidatprojektet i visualisering av elektronstrukturer. Visualisering av elektronstrukturer är ett av projekten i kursen TFYA75 vid
 Linköpings universitet. 
 
-Inom materialfysik är elektronstrukturberäkningar ett viktigt teoretiskt verktyg. Detta för att få en så bra förståelse som möjligt av hur olika material är uppbyggda, bland annat vad gäller kristallers egenskaper sett ur ett kvantmekaniskt perspektiv. Det kan exempelvis handla om att man vill ta reda på olika materials egenskaper vad gäller värmeledningsförmåga, strömledningsförmåga, etc.
+Inom materialfysik är elektronstrukturberäkningar viktiga teoretiska verktyg. Detta för att få en så bra förståelse som möjligt av hur olika material är uppbyggda, bland annat vad gäller kristallers egenskaper sedda ur ett kvantmekaniskt perspektiv. Det kan exempelvis handla om att man vill ta reda på olika materials egenskaper vad gäller värmeledningsförmåga, strömledningsförmåga, etc.
 
 För att öka förståelsen samt för att enklare kunna presentera resultat från forskning inom området underlättar det att kunna göra olika typer av visualiseringar baserat på elektronstrukturberäkningar.
 
@@ -103,7 +103,6 @@ Kappan ger en översikt över hela projektet och består av följande delar:
 	\item \textbf{Resultat}, avsnitt \ref{ch:resultat}, och \textbf{Slutsats}, avsnitt \ref{ch:slutsats}, beskriver vilka krav som är uppfyllda och hur det slutgiltiga resultatet blev samt sammanfattar projektet i sin helhet.
 \end{itemize}
 
-% TODO: Ska parter, användning och begränsningar vara med?
 \subsection{Parter}
 Rickard Armiento har beställt systemet som är beskrivet i kappan. Medlemmarna i projektgruppen, som är listade under rubriken projektidentitet ovan, är mottagare av denna beställning och har haft i uppgift att implementera systemet. Projektgruppens handledare är Johan Jönsson.
 
@@ -197,7 +196,6 @@ I fördjupningsarbetet om visualisering av volymdata tittades det närmare på e
 \section{Teknisk beskrivning}
 \label{ch:teknisk-beskrivning}
 
-% TODO: En beskrivning av det  färdigställda systemet kan ses i figur. lägg till fig
 Systemet hanterar indata från VASP. Datan kommer från elektronstrukturberäkningar och konverteras till HDF5-format för att därefter visualiseras. Användaren kan välja vad som ska visualiseras, kontrollera renderingens utseende och ställa in egenskaper såsom färg, transparens, och rotation. Systemet har delats in i delsystem och dessa har utvecklats och testats enskilt i den mån det inte funnits beroenden till andra delsystem.
 
 I avsnitt \ref{ch:datakonvertering} och \ref{ch:visualisering} nedan ges en övergripande inblick i det två huvudsakliga delsystemen och deras delsystem. För en mer detaljerad teknisk beskriving av systemet se den tekniska dokumentationen, se appendix \ref{appendix:teknisk-dokumentation}.
@@ -206,6 +204,7 @@ I avsnitt \ref{ch:datakonvertering} och \ref{ch:visualisering} nedan ges en öve
 \label{ch:datakonvertering}
 Detta avsnitt behandlar delsystemet datakonvertering, figur \ref{fig:konverteringdetalj} ger en grov översikt av delsystemet. Obehandlad data skickas in där obehandlad data är i form av textfiler med data från beräkningar gjorda i VASP. Indata behandlas sedan i konverteringsmodulen. Från konverteringsmodulen kommer behandlad data i HDF5-format.
 
+% TODO: Uppdatera bild (utan Elk)
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.55]{konverteringdetalj.png}
@@ -272,7 +271,7 @@ visualiseringsmodulen för att utföra en ny rendering.
 \subsubsection{Kristallstruktur}
 Kristallstruktur visualiseras som atompositioner i enhetscellen. Sfärer som representerar atomer  kan  ritas  ut  genom  volymsrendering. % figur och exempel?
 I designspecifikationen, se appendix \ref{appendix:designspecifikation}, finns en mer detaljerad beskrivning av
-hur detta byggs upp. I kap. \ref{ch:resultat} finns bilder på resultatet av denna visualisering. I kap. \ref{ch:resultat} i figur \ref{fig:visualisering_TiPO4} ses ett exempel på denna typ av visualisering.
+hur detta byggs upp. I kap. \ref{ch:resultat} i figur \ref{fig:visualisering_TiPO4} ses ett exempel på denna typ av visualisering.
 
 
 \subsubsection{Elektrontäthet}
@@ -302,9 +301,7 @@ Projektet bestod av att skapa ett visualiseringsverktyg i Inviwo som ska kunna v
 \subsection{Krav på systemet}
 Tabell \ref{table:kravlista generella systemet} är en kravlista med några utvalda krav på det generella systemet. För samtliga krav se kravspecifikationen i appendix \ref{appendix:kravspecifikation}. Krav fem är ett krav på egenskaper som ska kunna visualiseras. Projektgruppen valde att implementera visualisering av Fermi-ytor och Total DOS, men även visualisering av ELF har implementerats. 2017 års projektgrupp i visualisering implementerade ur listan i krav fem visualisering av total DOS, visualisering av ELF-data, och visualisering av bandstruktur. Detta års arbete bestod i att uppdatera majoriteten av den skrivna koden till att vara kompatibel med version 0.9.9 av Inviwo. Krav 45 är ett ska-krav som säger att koden ska fungera för version 0.9.9 eller senare versioner av Inviwo. Att uppdatera befintlig kod visade sig bli en stor del av arbetet eftersom tidigare versioner av Inviwo skilde sig mycket från version 0.9.9.
  
-% Utkommenterade krav kanske inte är nödvändiga att ha med i kappan.
 
-% TODO: mer beskrivningar av kraven och hur de uppfylldes?
 \begin{table}[H]
 \caption{Reducerad kravlista för det generella systemet.}
 \begin{center}
@@ -323,26 +320,14 @@ Tabell \ref{table:kravlista generella systemet} är en kravlista med några utva
   \item Parkorrelationsfunktionen
   \item Illustration av partiell elektrondensitet
   \end{itemize} & Ska & Delvis \\
-%\hline
-%6 & Original & Projektgruppen ska undersöka och lära sig om samtliga egenskaper ur listan i kravet ovan. & Ska & Ja \\
 \hline
 7 & Original & Tillhandahållna python-moduler ska kunna anropas med enkla funktionsanrop. & Ska & Ja \\
-%\hline
-%8 & Original & Tillhandahållna python-moduler ska kunna hantera indata. & Ska & Ja \\
-%\hline
-%9 & Original & Tillhandahållna python-moduler ska kunna hantera utdata. & Ska & Ja \\
-%\hline
-%12 & Original & användaren ska kunna ändra indata till python-moduler. & Ska & Ja \\
 \hline
 13 & Original & Användaren ska kunna välja vilken typ av visualisering som ska visas. & Ska & Ja \\
 \hline
 14 & Original & Användaren ska kunna länka samman olika python-moduler. & Ska & Ja \\
 \hline
 15 & Original & Systemet ska implementeras i Inviwo. & Ska & Ja \\
-%\hline
-%16 & Original & Tillhandahållna python-moduler ska kunna ta emot en eller flera typer av indata. & Ska & Ja \\
-%\hline
-%17 & Original & Tillhandahållna python-moduler ska kunna ge utdata. & Ska & Ja \\
 \hline
 18 & Original & Tillhandahållna python-moduler ska inte fortskrida som vanligt vid indata av fel typ. & Ska & Ja \\
 \hline
@@ -356,7 +341,7 @@ Tabell \ref{table:kravlista generella systemet} är en kravlista med några utva
 \end{center}
 \end{table}
 
-I listan i krav 5 valde projektgruppen att implementera visualisering av Fermi-ytor och att uppdatera befintlig kod för visualisering av total DOS. En fungerande visualisering av Fermi-ytor hann inte implementeras därför omförhandlades detta.   % TODO: lägg till fortsatt förklaring.
+I listan i krav 5 valde projektgruppen att implementera visualisering av Fermi-ytor och att uppdatera befintlig kod för visualisering av total DOS.
 En början till  Figur \ref{fig:visualisering_total_DOS_Cu} visar 2D-grafen som ritas upp när total tillståndstäthet för koppar, Cu.
 \begin{figure}[H]
 	\centering
@@ -421,10 +406,6 @@ I tabell \ref{table:kravlista visualisering} ses några av de krav som ställts 
 37 & Original & Systemet ska viusalisera kristallstruktur som atompositioner i enhetscellen. & Ska & Ja \\
 \hline
 38 & Original & Systemet ska kunna visualisera den elektrontäthet som resulterar från en beräkning. & Ska & Ja \\
-%\hline
-%42 & Original & Systemet bör tillåta dynamisk visualisering baserad på en serie atompositioner från utdatafiler. & Bör & Nej  \\
-%\hline
-%43 & Original & Systemet bör tillåta att visualisering av egenskaper tillhörande atomer bara visas på vissa atomer, som kan väljas dynamiskt med ett musklick. & Bör &  \\
 \hline
 \end{tabular}
 \label{table:kravlista visualisering}
@@ -456,7 +437,7 @@ Figur \ref{fig:visualisering_NaCl_slice} är ett exempel på visualisering av el
 \end{figure}
 
 \subsection{Användning}
-För närmare beskrivning av hur verktyget används se användarmanualen i appendix \ref{appendix:användarmanual}. Det framtagna visualiseringsvertyget används genom att öppna programmet Inviwo och därifrån köra önskat Python-skript. Python-skript finns för samtliga typer av visualiseringar och kräver endast små ändringar i koden för att köras. Vilka ändringar som behöver göras beskrivs dels i användarmanualen men även som kommentarer i skripten. % TODO: lägg till några exempel bilder från användamanual?
+För närmare beskrivning av hur verktyget används se användarmanualen i appendix \ref{appendix:användarmanual}. Det framtagna visualiseringsvertyget används genom att öppna programmet Inviwo och därifrån köra önskat Python-skript. Python-skript finns för samtliga typer av visualiseringar och kräver endast små ändringar i koden för att köras. Vilka ändringar som behöver göras beskrivs dels i användarmanualen men även som kommentarer i skripten.
 
 \section{Slutsats}
 \label{ch:slutsats} 

@@ -1,0 +1,47 @@
+\BOOKMARK [1][-]{section*.2}{Dokumenthistorik}{}% 1
+\BOOKMARK [1][-]{section.1}{Inledning}{}% 2
+\BOOKMARK [2][-]{subsection.1.1}{Parter}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.2}{Anv\344ndning}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.3}{Begr\344nsningar}{section.1}% 5
+\BOOKMARK [2][-]{subsection.1.4}{Definitioner}{section.1}% 6
+\BOOKMARK [1][-]{section.2}{Problemformulering}{}% 7
+\BOOKMARK [1][-]{section.3}{Kunskapsbas}{}% 8
+\BOOKMARK [1][-]{section.4}{Fasplan}{}% 9
+\BOOKMARK [2][-]{subsection.4.1}{F\366re-fas}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.2}{Under-fas}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.3}{Efter-fas}{section.4}% 12
+\BOOKMARK [1][-]{section.5}{F\366rdjupningsarbeten}{}% 13
+\BOOKMARK [2][-]{subsection.5.1}{Fermi-ytor}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.2}{Visualisering av volymdata}{section.5}% 15
+\BOOKMARK [1][-]{section.6}{Teknisk beskrivning}{}% 16
+\BOOKMARK [2][-]{subsection.6.1}{Datakonvertering}{section.6}% 17
+\BOOKMARK [3][-]{subsubsection.6.1.1}{HDF5}{subsection.6.1}% 18
+\BOOKMARK [3][-]{subsubsection.6.1.2}{VASP}{subsection.6.1}% 19
+\BOOKMARK [2][-]{subsection.6.2}{Visualisering}{section.6}% 20
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Utritning}{subsection.6.2}% 21
+\BOOKMARK [3][-]{subsubsection.6.2.2}{Anv\344ndarindata}{subsection.6.2}% 22
+\BOOKMARK [3][-]{subsubsection.6.2.3}{Interaktivitet}{subsection.6.2}% 23
+\BOOKMARK [3][-]{subsubsection.6.2.4}{Kristallstruktur}{subsection.6.2}% 24
+\BOOKMARK [3][-]{subsubsection.6.2.5}{Elektront\344thet}{subsection.6.2}% 25
+\BOOKMARK [3][-]{subsubsection.6.2.6}{ELF}{subsection.6.2}% 26
+\BOOKMARK [3][-]{subsubsection.6.2.7}{Tillst\345ndst\344thet}{subsection.6.2}% 27
+\BOOKMARK [2][-]{subsection.6.3}{Sammanl\344nkning av olika visualiseringar}{section.6}% 28
+\BOOKMARK [1][-]{section.7}{Resultat}{}% 29
+\BOOKMARK [2][-]{subsection.7.1}{Krav p\345 systemet}{section.7}% 30
+\BOOKMARK [2][-]{subsection.7.2}{Anv\344ndning}{section.7}% 31
+\BOOKMARK [1][-]{section.8}{Slutsats}{}% 32
+\BOOKMARK [2][-]{subsection.8.1}{Tekniskt}{section.8}% 33
+\BOOKMARK [2][-]{subsection.8.2}{Utf\366rande}{section.8}% 34
+\BOOKMARK [2][-]{subsection.8.3}{Framtida arbete}{section.8}% 35
+\BOOKMARK [1][-]{subsection.8.3}{Referenser}{}% 36
+\BOOKMARK [1][-]{Bilaga.a.A}{Bilaga Anv\344ndarmanual}{}% 37
+\BOOKMARK [1][-]{Bilaga.a.B}{Bilaga Designspecifikation}{}% 38
+\BOOKMARK [1][-]{Bilaga.a.C}{Bilaga F\366rdjupningsarbete - Fermi-ytor }{}% 39
+\BOOKMARK [1][-]{Bilaga.a.D}{Bilaga F\366rdjupningsarbete - Visualisering av volysmdata}{}% 40
+\BOOKMARK [1][-]{Bilaga.a.E}{Bilaga Gruppkontrakt}{}% 41
+\BOOKMARK [1][-]{Bilaga.a.F}{Bilaga Kravspecifikation}{}% 42
+\BOOKMARK [1][-]{Bilaga.a.G}{Bilaga Projektdirektiv}{}% 43
+\BOOKMARK [1][-]{Bilaga.a.H}{Bilaga Projektplan}{}% 44
+\BOOKMARK [1][-]{Bilaga.a.I}{Bilaga Systemskiss}{}% 45
+\BOOKMARK [1][-]{Bilaga.a.J}{Bilaga Tidplan}{}% 46
+\BOOKMARK [1][-]{Bilaga.a.K}{Bilaga Teknisk dokumentation}{}% 47
