@@ -28,8 +28,8 @@
 \newcommand{\LIPSversion}{0.2}
 \newcommand{\LIPSdatum}{\dagensdatum}
 
-\newcommand{\LIPSgranskare}{DOK}
-\newcommand{\LIPSgranskatdatum}{2018-05-18}
+\newcommand{\LIPSgranskare}{VB}
+\newcommand{\LIPSgranskatdatum}{2018-05-22}
 \newcommand{\LIPSgodkannare}{}
 \newcommand{\LIPSgodkantdatum}{}
 
@@ -73,7 +73,7 @@ Att kunna göra olika typer av visualiseringar baserat på elektronstrukturberä
 \addcontentsline{toc}{section}{Dokumenthistorik}
 \begin{LIPSdokumenthistorik}
   \LIPSversionsinfo{0.1}{2018-05-14}{Första utkast.}{Projektgruppen}{PL}
-  \LIPSversionsinfo{0.2}{2018-05-18}{Andra utkast.}{Projektgruppen}{DOK}
+  \LIPSversionsinfo{0.2}{2018-05-22}{Andra utkast.}{Projektgruppen}{VB}
 \end{LIPSdokumenthistorik}
 \newpage
 \pagenumbering{arabic}
@@ -206,7 +206,6 @@ I avsnitt \ref{ch:datakonvertering} och \ref{ch:visualisering} nedan ges en öve
 \label{ch:datakonvertering}
 Detta avsnitt behandlar delsystemet datakonvertering, figur \ref{fig:konverteringdetalj} ger en grov översikt av delsystemet. Obehandlad data skickas in där obehandlad data är i form av textfiler med data från beräkningar gjorda i VASP. Indata behandlas sedan i konverteringsmodulen. Från konverteringsmodulen kommer behandlad data i HDF5-format.
 
-% TODO: Uppdatera bild (utan Elk)
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.55]{konverteringdetalj.png}
@@ -217,16 +216,15 @@ Detta avsnitt behandlar delsystemet datakonvertering, figur \ref{fig:konverterin
 \subsubsection{HDF5}
 Systemet kan hantera olika utdatafiler från VASP. Detta görs genom att datan konverteras till HDF5-format.
 HDF5 är ett filformat som är designat för att hantera stora mängder data på ett flexibelt sätt \cite{hdf5}.
-HDF5 har flera olika datatyper, se figur 3, och ett HDF5-objekt som antingen är lagrat på disk eller hålls i minnet är uppdelat i två huvudsakliga underobjekt, nämligen grupper och dataset.
-%ref[8, s. 3-4]
+HDF5 har flera olika datatyper och ett HDF5-objekt som antingen är lagrat på disk eller hålls i minnet är uppdelat i två huvudsakliga underobjekt, nämligen grupper och dataset.
+
 
 Alla HDF5-objekt har en rotgrupp som äger alla andra objekt i datastrukturen. Denna grupp innehåller i sin tur all övrig data i form av andra grupper, länkar till andra grupper, eller dataset.
-Dataset innehåller rådata av något slag. Rådata kan i sammanhanget vara bilder, utdata från beräkningar, programdata, etc. %ref [8, s. 4-5]
+Dataset innehåller rådata av något slag. Rådata kan i sammanhanget vara bilder, utdata från beräkningar, programdata, etc.
 I designspecifikationen, se appendix \ref{appendix:designspecifikation}, ges en mer detaljerad beskriving av HDF5.
 
 \subsubsection{VASP}
-Från beräkningsprogrammet VASP fås en rad olika utdatafiler. Dessa listas och beskrivs i designspecifikationen 
-(se appendix \ref{appendix:designspecifikation}). Ur dessa utdatafiler läses saker som atompositionsdata, gittervektorer, elektrontäthetsdata, tillståndstäthetsdata, Fermi-energi, och så vidare för att kunna visualisera kristallstrukturer, elektrontäthet, ELF, tillståndstäthet, och Fermi-ytor. I designspecifikationen beskrivs närmare vad som läses från vilka utdatafiler. 
+Från beräkningsprogrammet VASP fås en rad olika utdatafiler. Dessa listas och beskrivs i designspecifikationen, se appendix \ref{appendix:designspecifikation}. Ur dessa utdatafiler läses saker som atompositionsdata, gittervektorer, elektrontäthetsdata, tillståndstäthetsdata, Fermi-energi, och så vidare för att kunna visualisera kristallstrukturer, elektrontäthet, ELF, tillståndstäthet, och Fermi-ytor. I designspecifikationen beskrivs närmare vad som läses från vilka utdatafiler. 
 
 \subsection{Visualisering}
 \label{ch:visualisering}
@@ -277,24 +275,18 @@ hur detta byggs upp. I kap. \ref{ch:resultat} i figur \ref{fig:visualisering_TiP
 
 
 \subsubsection{Elektrontäthet}
-Elektrontäthet visualiseras genom volymsrendering. Det är sannolikheten för att hitta elektroner på olika positioner som visualiseras. %figur och exempel?
+Elektrontäthet visualiseras genom volymsrendering. Det är sannolikheten för att hitta elektroner på olika positioner som visualiseras.
 I designspecifikationen, se appendix \ref{appendix:designspecifikation}, finns en mer detaljerad beskrivning av elektrontäthet. I kap. \ref{ch:resultat} i figur \ref{fig:visualisering_NaCl_slice} och figur \ref{fig:visualisering_NaCl_iso} ses två exempel på denna typ av visualisering.
 
 \subsubsection{ELF}
 Electron Location Function (ELF)-data visualiseras på liknande sätt som elektrontäthet eftersom även det är volymdata som ska visualiseras. Hur ELF visualiseras beskrivs mer detaljerat i den tekniska dokumentationen, se appendix \ref{appendix:teknisk-dokumentation}. I kap. \ref{ch:resultat} i figur \ref{fig:visualisering_diamant_elf} ses ett exempel på denna typ av visualisering.
 
 \subsubsection{Tillståndstäthet}
-Tillståndstäthet visualiseras med en 2D-graf med energin på x-axeln och tillståndstätheten på y-axeln.  %figur och exempel?.
+Tillståndstäthet visualiseras med en 2D-graf med energin på x-axeln och tillståndstätheten på y-axeln. 
 I designspecifikationen, se appendix \ref{appendix:designspecifikation}, finns en mer detaljerad besrivning av tillståndstäthet. I kap. \ref{ch:resultat} i figur \ref{fig:visualisering_total_DOS_Cu} ses ett exempel på denna typ av visualisering.
 
 \subsection{Sammanlänkning av olika visualiseringar}
-Det finns även möjlighet att visualisera kristallstrukturer tillsammans med elektrontähet eller ELF. I kap. \ref{ch:resultat} i figur \ref{fig:visualisering_sammanlankning} ses ett exempel på denna typ av visualisering.
-
-
-% TODO: Se om detta fortfarande stämmer.
-%\subsubsection{Fermi-ytor}
-%Fermi-ytor visualiseras genom att den 1:a Brillouin-zonen ritas upp för att sedan, inuti denna, rita upp en energi-isoyta (där energin är Fermi-energin). Även godtyckliga energi-isoytor kan ritas upp.  %figur och exempel?
-%I designspecfikationen, se appendix \ref{appendix:designspecifikation},  finns en mer detaljerad beskrivning av Fermi-ytor. 
+Det finns även möjlighet att visualisera kristallstrukturer tillsammans med elektrontähet, ELF eller tillståndstäthet. I kap. \ref{ch:resultat} i figur \ref{fig:visualisering_sammanlankning} ses ett exempel på denna typ av visualisering.
 
 \section{Resultat}
 \label{ch:resultat}
@@ -311,7 +303,7 @@ Tabell \ref{table:kravlista generella systemet} är en kravlista med några utva
 \hline
  \textbf{Krav} & \textbf{Förändring} & \textbf{Beskrivning} & \textbf{Prioritet} & \textbf{Uppfyllt}  \\ 
 \hline
- 5 & Original & Systemet ska implementera, alternativt utöka befintlig implementation med, visualisering av minst två av följande egenskaper:
+ 5 & Original & Projektgruppen ska utöka alternativt implementera visualisering av minst en av nedanstående  egenskaper, samt uppdatera minst en redan existerande implementation av någon av de nedanstående egenskaperna:
   \begin{itemize}
   \item Elastiska konstanter
   \item Fermi-ytor
@@ -321,7 +313,7 @@ Tabell \ref{table:kravlista generella systemet} är en kravlista med några utva
   \item Total DOS (Density Of States)
   \item Parkorrelationsfunktionen
   \item Illustration av partiell elektrondensitet
-  \end{itemize} & Ska & Delvis \\
+  \end{itemize} & Ska & Ja \\
 \hline
 7 & Original & Tillhandahållna python-moduler ska kunna anropas med enkla funktionsanrop. & Ska & Ja \\
 \hline
@@ -343,8 +335,7 @@ Tabell \ref{table:kravlista generella systemet} är en kravlista med några utva
 \end{center}
 \end{table}
 
-I listan i krav 5 valde projektgruppen att implementera visualisering av Fermi-ytor och att uppdatera befintlig kod för visualisering av total DOS.
-En början till  Figur \ref{fig:visualisering_total_DOS_Cu} visar 2D-grafen som ritas upp när total tillståndstäthet för koppar, Cu.
+I krav 5 valde projektgruppen att utöka implementeringen för Total DOS som kan ses i figur \ref{fig:visualisering_total_DOS_Cu} som visar en 2D-graf som ritar upp total tillståndstäthet för koppar, Cu.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.3]{Cu_1_10_total_DOS_visualisering.png}
@@ -403,7 +394,7 @@ I tabell \ref{table:kravlista visualisering} ses några av de krav som ställts 
 \hline
  \textbf{Krav} & \textbf{Förändring} & \textbf{Beskrivning} & \textbf{Prioritet} & \textbf{Uppfyllt}  \\ 
 \hline
-36 & Original & Systemet ska visualisera projicerad tillståndstäthet härrörande till varje separat atom i en kristalls enhetscell. & Ska &  \\
+36 & Original & Systemet ska visualisera projicerad tillståndstäthet härrörande till varje separat atom i en kristalls enhetscell. & Ska & Ja \\
 \hline
 37 & Original & Systemet ska viusalisera kristallstruktur som atompositioner i enhetscellen. & Ska & Ja \\
 \hline
@@ -471,8 +462,8 @@ Arbetet har känts effektivt, de nedlagda timmarna har använts bra.
 	
 \newpage
 
-\section{Användarmanual}
-\label{appendix:användarmanual}	
+
+\includepdf[pages={1},pagecommand=\section{Användarmanual}\label{appendix:anvandarmanual}\thispagestyle{empty}]{user_guide_01.pdf} \includepdf[pages={2-}]{user_guide_01.pdf}
 	
 \includepdf[pages={1},pagecommand=\section{Designspecifikation}\label{appendix:designspecifikation}\thispagestyle{empty}]{designspecifikation_10.pdf} \includepdf[pages={2-}]{designspecifikation_10.pdf}
 	
@@ -484,7 +475,7 @@ Arbetet har känts effektivt, de nedlagda timmarna har använts bra.
 	
 \includepdf[pages={1},pagecommand=\section{Gruppkontrakt}\label{appendix:Gruppkontrakt}\thispagestyle{empty}]{Gruppkontrakt.pdf}
 	
-\includepdf[pages={1},pagecommand=\section{Kravspecifikation}\label{appendix:kravspecifikation}\thispagestyle{empty}]{Kravspecifikation_11.pdf}	\includepdf[pages={2-}]{Kravspecifikation_10.pdf}
+\includepdf[pages={1},pagecommand=\section{Kravspecifikation}\label{appendix:kravspecifikation}\thispagestyle{empty}]{Kravspecifikation_11.pdf}	\includepdf[pages={2-}]{Kravspecifikation_11.pdf}
 	
 \includepdf[pages={1},pagecommand=\section{Projektdirektiv}\label{appendix:projektdirektiv}\thispagestyle{empty}]{projektdirektiv.pdf}
 \includepdf[pages={2-}]{projektdirektiv.pdf}
