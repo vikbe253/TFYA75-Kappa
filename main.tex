@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,12pt,twoside,openright]{report}
 \usepackage{graphicx}
 \usepackage[backend=biber]{biblatex}
 \usepackage{float}
@@ -67,6 +67,15 @@ Att kunna göra olika typer av visualiseringar baserat på elektronstrukturberä
   \LIPSgruppmedlem{Viktor Bernholtz}{Viktor Bernholtz (VB)}{073-0386030}{vikbe253@student.liu.se}
 \end{LIPSprojektidentitet}
 
+
+\makeatletter
+\renewcommand\tableofcontents{%
+	\section*{\contentsname}%	
+	\@mkboth{\MakeUppercase\contentsname}%
+		{\MakeUppercase\contentsname}%
+	\@starttoc{toc}%
+}
+\makeatother
 \tableofcontents{}
 \newpage
 
@@ -78,6 +87,7 @@ Att kunna göra olika typer av visualiseringar baserat på elektronstrukturberä
 \end{LIPSdokumenthistorik}
 \newpage
 \pagenumbering{arabic}
+\renewcommand*\thesection{\arabic{section}}
 
 \section{Inledning}
 \label{ch:inledning}
@@ -489,37 +499,95 @@ Arbetet har känts effektivt, de nedlagda timmarna har använts bra.
 	
 \newpage
 
+\chapter{Användarmanual}
+\clearpage
+\null
+\newpage
+\includepdf[pages=-]{user_guide.pdf}
+%\includepdf[pages={1},pagecommand=\section{Användarmanual}\label{appendix:anvandarmanual}\thispagestyle{empty}]{user_guide.pdf} \includepdf[pages={2-}]{user_guide.pdf}
 
-\includepdf[pages={1},pagecommand=\section{Användarmanual}\label{appendix:anvandarmanual}\thispagestyle{empty}]{user_guide.pdf} \includepdf[pages={2-}]{user_guide.pdf}
+\chapter{Designspecifikation}
+\clearpage
+\null
+\newpage
+\includepdf[pages=-]{designspecifikation.pdf}	
+%\includepdf[pages={1},pagecommand=\section{Designspecifikation}\label{appendix:designspecifikation}\thispagestyle{empty}]{designspecifikation.pdf} \includepdf[pages={2-}]{designspecifikation.pdf}
 	
-\includepdf[pages={1},pagecommand=\section{Designspecifikation}\label{appendix:designspecifikation}\thispagestyle{empty}]{designspecifikation.pdf} \includepdf[pages={2-}]{designspecifikation.pdf}
-	
-\includepdf[pages={1},pagecommand=\section{Fördjupningsarbete - Fermi-ytor }\label{appendix:fermi-ytor}\thispagestyle{empty}]{fordjupningsarbete-fermi-ytor.pdf}
-\includepdf[pages={2-}]{fordjupningsarbete-fermi-ytor.pdf}
+\chapter{Fördjupningsarbete - Fermi-ytor}
+\clearpage
+\null
+\newpage
+\includepdf[pages=-]{fordjupningsarbete-fermi-ytor.pdf}
+%\includepdf[pages={1},pagecommand=\section{Fördjupningsarbete - Fermi-ytor }\label{appendix:fermi-ytor}\thispagestyle{empty}]{fordjupningsarbete-fermi-ytor.pdf}
+%\includepdf[pages={2-}]{fordjupningsarbete-fermi-ytor.pdf}
 
-\includepdf[pages={1},pagecommand=\section{Fördjupningsarbete - Visualisering av volymsdata}\label{appendix:visualisering}\thispagestyle{empty}]{Visualisering-av-volymsdata.pdf}
-\includepdf[pages={2-}]{Visualisering-av-volymsdata.pdf}
-	
-\includepdf[pages={1},pagecommand=\section{Gruppkontrakt}\label{appendix:Gruppkontrakt}\thispagestyle{empty}]{Gruppkontrakt.pdf}
-	
-\includepdf[pages={1},pagecommand=\section{Kravspecifikation}\label{appendix:kravspecifikation}\thispagestyle{empty}]{Kravspecifikation.pdf}	\includepdf[pages={2-}]{Kravspecifikation.pdf}
-	
-\includepdf[pages={1},pagecommand=\section{Projektdirektiv}\label{appendix:projektdirektiv}\thispagestyle{empty}]{projektdirektiv.pdf}
-\includepdf[pages={2-}]{projektdirektiv.pdf}
-	
-\includepdf[pages={1},pagecommand=\section{Projektplan}\label{appendix:projektplan}\thispagestyle{empty}]{projektplan.pdf}
-\includepdf[pages={2-22}]{projektplan.pdf}
-	
-\includepdf[pages={1},pagecommand=\section{Systemskiss}\label{appendix:systemskiss}\thispagestyle{empty}]{Systemskiss.pdf}
-\includepdf[pages={2-}]{Systemskiss.pdf}
-		
-\includepdf[pages={1},pagecommand=\section{Tidplan}\label{appendix:tidplan}\thispagestyle{empty}]{tidplan.pdf}
-	
-	
-\includepdf[pages={1},pagecommand=\section{Teknisk dokumentation}\label{appendix:teknisk-dokumentation}\thispagestyle{empty}]{tekdok.pdf}
-\includepdf[pages={2-}]{tekdok.pdf}
+\chapter{Fördjupningsarbete - Visualisering av volymsadata}
+\clearpage
+\null
+\newpage
+\includepdf[pages=-]{Visualisering-av-volymsdata.pdf}
+%\includepdf[pages={1},pagecommand=\section{Fördjupningsarbete - Visualisering av volymsdata}\label{appendix:visualisering}\thispagestyle{empty}]{Visualisering-av-volymsdata.pdf}
+%\includepdf[pages={2-}]{Visualisering-av-volymsdata.pdf}
 
-\includepdf[pages={1},pagecommand=\section{Naturvetenskaplig undersökning}\label{appendix:naturvetenskaplig}\thispagestyle{empty}]{naturvetenskaplig-undersokning.pdf} \includepdf[pages={2-}]{naturvetenskaplig-undersokning.pdf}
+\chapter{Gruppkontrakt}
+\clearpage
+\null
+\newpage
+\includepdf[pages=-]{Gruppkontrakt.pdf}	
+%\includepdf[pages={1},pagecommand=\section{Gruppkontrakt}\label{appendix:Gruppkontrakt}\thispagestyle{empty}]{Gruppkontrakt.pdf}
+
+\chapter{Kravspecifikation}
+\clearpage
+\null
+\newpage
+\includepdf[pages=-]{Kravspecifikation.pdf}	
+%\includepdf[pages={1},pagecommand=\section{Kravspecifikation}\label{appendix:kravspecifikation}\thispagestyle{empty}]{Kravspecifikation.pdf}	\includepdf[pages={2-}]{Kravspecifikation.pdf}
+
+\chapter{Projektdirektiv}
+\clearpage
+\null
+\newpage
+\includepdf[pages=-]{projektdirektiv.pdf}	
+%\includepdf[pages={1},pagecommand=\section{Projektdirektiv}\label{appendix:projektdirektiv}\thispagestyle{empty}]{projektdirektiv.pdf}
+%\includepdf[pages={2-}]{projektdirektiv.pdf}
+
+\chapter{Projektplan}
+\clearpage
+\null
+\newpage
+\includepdf[pages=-]{projektplan.pdf}	
+%\includepdf[pages={1},pagecommand=\section{Projektplan}\label{appendix:projektplan}\thispagestyle{empty}]{projektplan.pdf}
+%\includepdf[pages={2-22}]{projektplan.pdf}
+
+\chapter{Systemskiss}
+\clearpage
+\null
+\newpage
+\includepdf[pages=-]{Systemskiss.pdf}	
+%\includepdf[pages={1},pagecommand=\section{Systemskiss}\label{appendix:systemskiss}\thispagestyle{empty}]{Systemskiss.pdf}
+%\includepdf[pages={2-}]{Systemskiss.pdf}
+
+\chapter{Tidsplan}
+\clearpage
+\null
+\newpage
+\includepdf[pages=-]{tidplan.pdf}		
+%\includepdf[pages={1},pagecommand=\section{Tidplan}\label{appendix:tidplan}\thispagestyle{empty}]{tidplan.pdf}
+	
+\chapter{Teknisk dokumentation}
+\clearpage
+\null
+\newpage
+\includepdf[pages=-]{tekdok.pdf}	
+%\includepdf[pages={1},pagecommand=\section{Teknisk dokumentation}\label{appendix:teknisk-dokumentation}\thispagestyle{empty}]{tekdok.pdf}
+%\includepdf[pages={2-}]{tekdok.pdf}
+
+\chapter{Naturvetenskaplig undersökning}
+\clearpage
+\null
+\newpage
+\includepdf[pages=-]{naturvetenskaplig-undersokning.pdf}
+%\includepdf[pages={1},pagecommand=\section{Naturvetenskaplig undersökning}\label{appendix:naturvetenskaplig}\thispagestyle{empty}]{naturvetenskaplig-undersokning.pdf} \includepdf[pages={2-}]{naturvetenskaplig-undersokning.pdf}
 
 \end{appendices}
 
